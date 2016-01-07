@@ -19,13 +19,13 @@
       apt_repository: repo='ppa:ondrej/php5-5.6'
 
   roles:
-    - geerlingguy.firewall
-    - geerlingguy.ntp
-    - geerlingguy.postfix
-    - geerlingguy.mysql
-    - geerlingguy.apache
-    - geerlingguy.php
-    - geerlingguy.php-mysql
-    - geerlingguy.composer
-    - geerlingguy.drush
-    - roles/hds.housing.drupal
+    - roles/hds.firewall
+    - roles/hds.ntp
+    - roles/hds.postfix
+    - roles/hds.mysql
+    - roles/hds.apache
+    - roles/hds.php
+    - roles/hds.php-mysql
+    - roles/hds.composer
+    - roles/hds.drush
+    - roles/hds.drupal

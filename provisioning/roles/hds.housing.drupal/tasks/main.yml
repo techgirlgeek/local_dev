@@ -1,5 +1,0 @@
----
-- include: general.yml
-- include: db.yml
-- include: web.yml
-- include: drupal.yml
