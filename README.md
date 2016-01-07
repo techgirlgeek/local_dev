@@ -17,6 +17,7 @@ To use the vagrant file, you will need to have done the following:
   3. Install [Ansible](http://docs.ansible.com/intro_installation.html)
   4. Open a shell prompt (Terminal app on a Mac) and cd into the folder containing the `Vagrantfile`
   5. Run the following command to install the necessary Ansible roles for this profile: `$ ansible-galaxy install -r requirements.yml`
+    - HDS Note: This will be removed, on final deployment.
 
 Once all of that is done, you can simply type in `vagrant up`, and Vagrant will create a new VM, install the base box, and configure it.
 
@@ -37,3 +38,5 @@ If you'd like additional assistance editing your hosts file, please read [How do
 ## Author Information
 
 Created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+
+Edited, and modified, by Karyn Cassio, HDS IT, (techgirlgeek), 2016.
