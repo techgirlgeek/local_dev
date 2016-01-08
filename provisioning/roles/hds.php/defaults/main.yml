@@ -43,7 +43,7 @@ php_max_input_vars: "1000"
 php_realpath_cache_size: "32K"
 php_upload_max_filesize: "64M"
 php_post_max_size: "32M"
-php_date_timezone: "America/Chicago"
+php_date_timezone: "America/Denver"
 
 php_sendmail_path: "/usr/sbin/sendmail -t -i"
 php_short_open_tag: false

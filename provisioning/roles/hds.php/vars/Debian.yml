@@ -9,10 +9,10 @@ __php_packages:
   - php5-dev
   - php5-fpm
   - php5-gd
+  - php5-ldap  
   - php-pear
   - php-apc
   - libpcre3-dev
-  - php5-ldap
 __php_webserver_daemon: "apache2"
 
 # Vendor-specific configuration paths on Debian/Ubuntu make my brain asplode.

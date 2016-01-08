@@ -1,26 +1,22 @@
 ---
-dependencies:
-  - hds.git
-  - hds.apache
-  - hds.mysql
-  - hds.php
-  - hds.php-mysql
-  - hds.composer
-  - hds.drush
+dependencies: []
 
 galaxy_info:
   author: geerlingguy
-  description: Install Drupal - a world class CMS
+  description: Git version control software
   company: "Midwestern Mac, LLC"
   license: "license (BSD, MIT)"
   min_ansible_version: 1.4
   platforms:
-  - name: Ubuntu
+  - name: EL
     versions:
     - all
   - name: Debian
     versions:
     - all
+  - name: Ubuntu
+    versions:
+    - all
   categories:
     - development
-    - web
+    - system
