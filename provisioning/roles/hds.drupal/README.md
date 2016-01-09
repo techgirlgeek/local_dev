@@ -60,13 +60,13 @@ The install profile to use. If you're installing Drupal 6.x, you should update t
 
 ## Dependencies
 
-  - geerlingguy.git
-  - geerlingguy.apache
-  - geerlingguy.mysql
-  - geerlingguy.php
-  - geerlingguy.php-mysql
-  - geerlingguy.composer
-  - geerlingguy.drush
+  - hds.git
+  - hds.apache
+  - hds.mysql
+  - hds.php
+  - hds.php-mysql
+  - hds.composer
+  - hds.drush
 
 ## Example Playbook
 
@@ -74,7 +74,7 @@ The install profile to use. If you're installing Drupal 6.x, you should update t
       vars_files:
         - vars/main.yml
       roles:
-        - { role: geerlingguy.drupal }
+        - { role: hds.drupal }
 
 *Inside `vars/main.yml`*:
 

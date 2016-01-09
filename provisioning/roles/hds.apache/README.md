@@ -94,7 +94,7 @@ None.
       vars_files:
         - vars/main.yml
       roles:
-        - { role: geerlingguy.apache }
+        - { role: hds.apache }
 
 *Inside `vars/main.yml`*:
 

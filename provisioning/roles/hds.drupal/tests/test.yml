@@ -10,11 +10,11 @@
       apt_repository: repo='ppa:ondrej/php5-5.6'
 
   roles:
-    - geerlingguy.git
-    - geerlingguy.apache
-    - geerlingguy.mysql
-    - geerlingguy.php
-    - geerlingguy.php-mysql
-    - geerlingguy.composer
-    - geerlingguy.drush
+    - hds.git
+    - hds.apache
+    - hds.mysql
+    - hds.php
+    - hds.php-mysql
+    - hds.composer
+    - hds.drush
     - ansible-role-drupal

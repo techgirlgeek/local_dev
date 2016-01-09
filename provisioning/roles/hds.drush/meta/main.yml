@@ -1,8 +1,8 @@
 ---
 dependencies:
-  - geerlingguy.git
-  - geerlingguy.php
-  - geerlingguy.composer
+  - hds.git
+  - hds.php
+  - hds.composer
 
 galaxy_info:
   author: geerlingguy
