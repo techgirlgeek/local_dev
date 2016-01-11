@@ -26,10 +26,10 @@
     dest: "{{ drupal_core_path }}"
     accept_hostkey: yes
     key_file: "~/.ssh/priv_key"
-
+#    drush si {{ drupal_install_profile }} -y
 - name: Install Drupal.
   command: >
-    drush si {{ drupal_install_profile }} -y
+    drush si -y
     --site-name="{{ drupal_site_name }}"
     --account-name={{ drupal_admin_name }}
     --account-pass={{ drupal_admin_password}}
@@ -37,14 +37,14 @@
     chdir={{ drupal_core_path }}
     creates={{ drupal_core_path }}/sites/default/settings.php
 
-#- name: Set ownership of /var/www/ drupal_core_path
-#  file: 
-#    path: "{{ drupal_core_path }}"
+- name: Set ownership of /var/www/ drupal_core_path
+  file:
+    path: "{{ drupal_core_path }}"
     #mode: 0775
-#    owner: vagrant
-#    group: vagrant
-#    state: directory
-#    recurse: yes
+    owner: vagrant
+    group: vagrant
+    state: directory
+    recurse: yes
 
 # SEE: https://drupal.org/node/2121849#comment-8413637
 - name: Set permissions properly on settings.php.
