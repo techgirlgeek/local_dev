@@ -26,7 +26,8 @@
     dest: "{{ drupal_core_path }}"
     accept_hostkey: yes
     key_file: "~/.ssh/priv_key"
-#    drush si {{ drupal_install_profile }} -y
+
+# Install Drupal for site
 - name: Install Drupal.
   command: >
     drush si -y
