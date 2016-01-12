@@ -13,7 +13,7 @@
     state: directory
     mode: 0744
 
-- name: send key to remote deploy user
+- name: Send key to remote deploy user
   copy:
     src: ~/.ssh/id_rsa
     dest: ~/.ssh/priv_key
@@ -38,7 +38,7 @@
     chdir={{ drupal_core_path }}
     creates={{ drupal_core_path }}/sites/default/settings.php
 
-- name: Set ownership of /var/www/ drupal_core_path
+- name: Set ownership of /var/www/web/ drupal_domain_path
   file:
     path: "{{ drupal_core_path }}"
     #mode: 0775
@@ -60,5 +60,8 @@
     state: directory
     recurse: yes
 
-
-
+- name: Create symbolic link to new web directory in home
+  file:
+    src: "{{ drupal_core_path }}"
+    dest: "/home/vagrant/{{ drupal_domain }}"
+    state: link

@@ -1,12 +1,9 @@
 ---
-- name: Copy database dump to vagrant server
-  copy: src=/Users/karyn/Sites/dumps/housing.sql.gz dest=/tmp/housing.sql.gz
-
-- name: Create a MySQL database for Drupal.
+- name: Create MySQL database for Drupal.
   mysql_db:
     db: "{{ drupal_mysql_database }}"
-    state: import
-    target: "/tmp/{{ drupal_domain}}.sql.gz"
+    state: present
+    #target: "/tmp/{{ drupal_domain}}.sql.gz"
 
 - name: Create a MySQL user for Drupal.
   mysql_user:
@@ -18,6 +15,15 @@
     - 127.0.0.1
     - ::1
     - localhost
+
+- name: Copy database dump to vagrant server
+  copy: src=/Users/karyn/Sites/dumps/housing.sql.gz dest=/tmp/housing.sql.gz
+
+- name: Import MySQL database for Drupal.
+  mysql_db:
+    db: "{{ drupal_mysql_database }}"
+    state: import
+    target: "/tmp/{{ drupal_domain}}.sql.gz"
 
 # - name: Import database.sql to mysql database created above.
 
