@@ -6,7 +6,7 @@
 drupal_domain: "housing"
 
 # The path where Drupal will be downloaded and installed.
-drupal_core_path: "/var/www/{{ drupal_domain }}.dev/public"
+drupal_core_path: "/var/www/web/{{ drupal_domain }}.dev/public"
 
 # Your Drupal site name.
 drupal_site_name: "{{ drupal_domain }} Dev"

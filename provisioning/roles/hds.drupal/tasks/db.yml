@@ -1,6 +1,6 @@
 ---
 - name: Copy database dump to vagrant server
-  copy: src=//Users/karyn/Sites/dumps/housing.sql.gz dest=/tmp/housing.sql.gz
+  copy: src=/Users/karyn/Sites/dumps/housing.sql.gz dest=/tmp/housing.sql.gz
 
 - name: Create a MySQL database for Drupal.
   mysql_db:
