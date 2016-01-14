@@ -3,7 +3,7 @@
 #
 # @author Jeff Geerling (2014).
 
-- hosts: hdsvm
+- hosts: all
   gather_facts: yes
   remote_user: vagrant
   sudo: yes

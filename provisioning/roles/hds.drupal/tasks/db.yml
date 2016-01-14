@@ -1,5 +1,5 @@
 ---
-- name: Create MySQL database for Drupal.
+- name: Create and import MySQL database for Drupal.
   mysql_db:
     db: "{{ drupal_mysql_database }}"
     state: present
