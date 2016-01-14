@@ -10,32 +10,21 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.hostmanager.enabled = true
 
   config.vm.provider :virtualbox do |v|
-    v.name = "hdsvm"
     v.memory = 1024
     v.cpus = 2
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
-
-  config.vm.hostname = "hdsvm"
-  config.vm.network :private_network, ip: "192.168.36.3"
 
   # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
-  config.vm.define :hdsvm do |hdsvm|
+  config.vm.define "hdsvm" do |hdsvm|
+    hdsvm.vm.hostname = "hdsvm"
+    hdsvm.vm.network :private_network, ip: "192.168.36.3"
   end
-
-  config.vm.provider :virtualbox do |v|
-    v.name = "housing.dev"
-    v.memory = 1024
-    v.cpus = 2
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-    v.customize ["modifyvm", :id, "--ioapic", "on"]
-  end
-
-  config.vm.hostname = "housing.dev"
-  config.vm.network :private_network, ip: "192.168.36.5"
 
   config.vm.define "housing.dev" do |housing|
+    housing.vm.hostname = "housing.dev"
+    housing.vm.network :private_network, ip: "192.168.36.5"
   end
 
   # Ansible provisioner.

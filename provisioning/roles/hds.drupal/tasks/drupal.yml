@@ -24,7 +24,8 @@
   git:
     repo: "{{ drupal_repo_url }}"
     dest: "{{ drupal_core_path }}"
-    accept_hostkey: yes
+    version: master
+    accept_hostkey: true
     key_file: "~/.ssh/priv_key"
 
 # Install Drupal for site
