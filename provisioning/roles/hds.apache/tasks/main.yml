@@ -9,9 +9,6 @@
   when: apache_packages is not defined
 
 # Setup/install tasks.
-- include: setup-RedHat.yml
-  when: ansible_os_family == 'RedHat'
-
 - include: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
@@ -31,10 +28,6 @@
 
 - include_vars: apache-24.yml
   when: "apache_version.split('.')[1] == '4'"
-
-# Configure Apache.
-- include: configure-RedHat.yml
-  when: ansible_os_family == 'RedHat'
 
 - include: configure-Debian.yml
   when: ansible_os_family == 'Debian'

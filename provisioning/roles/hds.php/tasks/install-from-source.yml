@@ -1,19 +1,4 @@
 ---
-- name: Ensure dependencies for building from source are installed (RedHat).
-  yum: "pkg={{ item }} state=installed"
-  with_items:
-    - recode-devel
-    - aspell-devel
-    - libmcrypt-devel
-    - t1lib-devel
-    - libXpm-devel
-    - libpng-devel
-    - libjpeg-turbo-devel
-    - bzip2-devel
-    - openssl-libs
-    - libicu-devel
-  when: ansible_os_family == 'RedHat'
-
 - name: Update apt cache (Debian).
   apt: update_cache=yes cache_valid_time=86400
   when: ansible_os_family == 'Debian'

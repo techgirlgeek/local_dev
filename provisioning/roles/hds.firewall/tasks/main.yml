@@ -1,8 +1,4 @@
 ---
-- name: Ensure iptables is installed (RedHat).
-  yum: pkg=iptables state=installed
-  when: ansible_os_family == 'RedHat'
-
 - name: Ensure iptables is installed (Debian).
   apt: pkg=iptables state=installed
   when: ansible_os_family == 'Debian'
