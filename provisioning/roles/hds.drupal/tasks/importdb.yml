@@ -1,0 +1,6 @@
+---
+- name: Import MySQL database for Drupal.
+  mysql_db:
+    db: "{{ drupal_mysql_database }}"
+    state: import
+    target: "/tmp/{{ drupal_domain}}.sql.gz"
