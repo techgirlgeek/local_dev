@@ -15,7 +15,12 @@ To use the vagrant file, you will need to have done the following:
   1. Download and Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
   2. Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
   3. Install [Ansible](http://docs.ansible.com/intro_installation.html)
-  4. Open a shell prompt (Terminal app on a Mac) and cd into the folder containing the `Vagrantfile`
+  4. Open a shell prompt (Terminal app on a Mac)
+      a.  Create a folder in your home director, ie: ~/Sites/dev. 
+      b.  git clone git@bitbucket.org:hdscode/local_dev.git .
+  5. vagrant up { site to build }
+      example: vagrant up oncampus.dev 
+  6. Go grab some coffee while the magic happens.
 
 Once all of that is done, you can simply type in `vagrant up`, and Vagrant will create a new VM, install the base box, and configure it.
 
@@ -23,13 +28,19 @@ Once the new VM is up and running (after `vagrant up` is complete and you're bac
 
 ### Setting up your hosts file
 
-You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`; Windows: `%systemroot%\system32\drivers\etc\hosts`), adding the line below:
+You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), adding the lines below:
 
-    192.168.33.3  hdsvm
+    10.20.30.54   housing.dev
+    10.20.30.55   oncampus.dev
+    10.20.30.56   cucs.dev
+    10.20.30.57   bearcreek.dev
+    10.20.30.58   stampede.dev
+    10.20.30.59   childcare.dev
+    10.20.30.60   rha.dev
+    10.20.30.61   pac12housing.dev
+    10.20.30.62   nrsm.dev
 
-(Where `drupal`) is the hostname you have configured in the `Vagrantfile`).
-
-After that is configured, you could visit http://drupal/ in a browser, and you'll see the Drupal site's home page.
+After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 

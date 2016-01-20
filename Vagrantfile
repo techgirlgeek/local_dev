@@ -16,20 +16,49 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
-  # Set the name of the VM. See: http://stackoverflow.com/a/17864388/100134
-  #config.vm.define "hdsvm" do |hdsvm|
-  #  hdsvm.vm.hostname = "hdsvm"
-  #  hdsvm.vm.network :private_network, ip: "192.168.36.3"
-  #end
-
   config.vm.define "housing.dev" do |housing|
     housing.vm.hostname = "housing.dev"
-    housing.vm.network :private_network, ip: "192.168.36.5"
+    housing.vm.network :private_network, ip: "10.20.30.54"
   end
 
   config.vm.define "oncampus.dev" do |oncampus|
     oncampus.vm.hostname = "oncampus.dev"
-    oncampus.vm.network :private_network, ip: "192.168.36.6"
+    oncampus.vm.network :private_network, ip: "10.20.30.55"
+  end
+
+  config.vm.define "cucs.dev" do |cucs|
+    cucs.vm.hostname = "cucs.dev"
+    cucs.vm.network :private_network, ip: "10.20.30.56"
+  end
+
+  config.vm.define "bearcreek.dev" do |bearcreek|
+    bearcreek.vm.hostname = "bearcreek.dev"
+    bearcreek.vm.network :private_network, ip: "10.20.30.57"
+  end
+
+  config.vm.define "stampede.dev" do |stampede|
+    stampede.vm.hostname = "stampede.dev"
+    stampede.vm.network :private_network, ip: "10.20.30.58"
+  end
+
+  config.vm.define "childcare.dev" do |childcare|
+    childcare.vm.hostname = "childcare.dev"
+    childcare.vm.network :private_network, ip: "10.20.30.59"
+  end
+
+  config.vm.define "rha.dev" do |rha|
+    rha.vm.hostname = "rha.dev"
+    rha.vm.network :private_network, ip: "10.20.30.60"
+  end
+
+  config.vm.define "pac12housing.dev" do |pac12housing|
+    pac12housing.vm.hostname = "pac12housing.dev"
+    pac12housing.vm.network :private_network, ip: "10.20.30.61"
+  end
+
+  config.vm.define "nrsm.dev" do |nrsm|
+    nrsm.vm.hostname = "nrsm.dev"
+    nrsm.vm.network :private_network, ip: "10.20.30.62"
   end
 
   # Ansible provisioner.
@@ -38,7 +67,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.inventory_path = "provisioning/inventory"
     ansible.sudo = true
     #ansible.verbose = "vv"
-    #ansible.limit = "housing"
   end
 
 end
