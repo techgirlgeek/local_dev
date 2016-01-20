@@ -3,7 +3,7 @@
 # drupal_core_version: "7.x"
 
 # Your drupal site's domain name (e.g. 'example.com').
-drupal_domain: "housing"
+drupal_domain: "{{ hostvars[inventory_hostname].ansible_hostname }}"
 
 # The path where Drupal will be downloaded and installed.
 drupal_core_path: "/var/www/web/{{ drupal_domain }}.dev/public"
@@ -29,7 +29,3 @@ drupal_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
 drupal_keep_updated: no
-
-# The Drupal install profile to be used
-# See note in readme if installing the Drupal 6.x
-#drupal_install_profile: standard

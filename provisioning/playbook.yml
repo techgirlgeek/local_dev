@@ -18,6 +18,9 @@
     - name: Add ondrej repository for later versions of PHP.
       apt_repository: repo='ppa:ondrej/php5-5.6'
 
+    - name: print out hostvars
+      debug: var=hostvars[inventory_hostname].ansible_hostname
+
   roles:
     - roles/hds.firewall
     - roles/hds.ntp
