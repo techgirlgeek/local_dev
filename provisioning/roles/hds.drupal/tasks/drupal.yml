@@ -19,6 +19,14 @@
     dest: ~/.ssh/priv_key
     mode: 0600
 
+- name: Send key to remote vagrant user
+  copy:
+    src: ~/.ssh/id_rsa
+    dest: /home/vagrant/.ssh/id_rsa
+    owner: vagrant
+    group: vagrant
+    mode: 0600
+
 # Download Drupal using Git.
 - name: Check out Repo to the specified location.
   git:
