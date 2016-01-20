@@ -16,10 +16,10 @@ To use the vagrant file, you will need to have done the following:
   2. Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
   3. Install [Ansible](http://docs.ansible.com/intro_installation.html)
   4. Open a shell prompt (Terminal app on a Mac)
-      a.  Create a folder in your home director, ie: ~/Sites/dev. 
-      b.  git clone git@bitbucket.org:hdscode/local_dev.git .
+      1.  Create a folder in your home director, ie: ~/Sites/dev. 
+      2.  git clone git@bitbucket.org:hdscode/local_dev.git .
   5. vagrant up { site to build }
-      example: vagrant up oncampus.dev 
+      1.  example: vagrant up oncampus.dev 
   6. Go grab some coffee while the magic happens.
 
 Once all of that is done, you can simply type in `vagrant up`, and Vagrant will create a new VM, install the base box, and configure it.
