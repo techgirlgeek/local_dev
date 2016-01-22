@@ -8,7 +8,6 @@
   mysql_db:
     db: "{{ drupal_mysql_database }}"
     state: present
-    #target: "/tmp/{{ drupal_domain}}.sql.gz"
 
 - name: Create a MySQL user for Drupal.
   mysql_user:
@@ -20,9 +19,3 @@
     - 127.0.0.1
     - ::1
     - localhost
-
-# - name: Import MySQL database for Drupal.
-#   mysql_db:
-#     db: "{{ drupal_mysql_database }}"
-#     state: import
-#     target: "/tmp/{{ drupal_domain}}.sql.gz"

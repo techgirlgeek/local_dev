@@ -5,9 +5,3 @@
     regexp: "^127.0.0.1    {{ drupal_domain }}"
     line: "127.0.0.1    {{ drupal_domain }}"
     state: present
-
-# - name: Create symbolic link to new web directory in home
-#   file:
-#     src: "{{ drupal_core_path }}"
-#     dest: "/home/vagrant/{{ drupal_domain }}"
-#     state: link

@@ -4,3 +4,4 @@
     db: "{{ drupal_mysql_database }}"
     state: import
     target: "/tmp/{{ drupal_domain}}.sql.gz"
+  notify: restart webserver
