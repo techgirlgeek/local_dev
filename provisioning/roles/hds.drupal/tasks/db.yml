@@ -1,8 +1,6 @@
 ---
-- name: Copy database dump to vagrant server
-  copy:
-    src: "~/Sites/dumps/{{ drupal_domain }}.sql.gz"
-    dest: "/tmp/{{ drupal_domain }}.sql.gz"
+- name: Download MySQL Dump for domain
+  get_url: url={{ drupal_mysql_dump }} dest=/tmp/{{ drupal_domain }}.sql.gz
 
 - name: Create MySQL database for Drupal.
   mysql_db:

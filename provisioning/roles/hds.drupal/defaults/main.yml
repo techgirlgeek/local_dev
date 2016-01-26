@@ -29,3 +29,6 @@ drupal_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
 drupal_keep_updated: no
+
+# Wget URL for MySQL dumps
+drupal_mysql_dump: "http://ndmps.hds.int.colorado.edu/{{ drupal_domain }}.sql.gz"
