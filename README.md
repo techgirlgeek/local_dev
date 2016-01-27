@@ -20,7 +20,7 @@ To use the vagrant file, you will need to have done the following:
       2.  If you don't have a sub-directory, Sites in your home directory, create it.
       3.  git clone git@bitbucket.org:hdscode/local_dev.git
       4.  Change directory into local_dev: cd local_dev
-  5. Make sure you are connected to the VPN, if you are not in the office.
+  5. Make sure you are connected to the VPN.
   6. To see a list of all sites ready to build, do a vagrant status:
       1. vagrant status
   7. vagrant up { site to build }
