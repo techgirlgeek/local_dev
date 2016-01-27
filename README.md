@@ -20,10 +20,17 @@ To use the vagrant file, you will need to have done the following:
       2.  git clone git@bitbucket.org:hdscode/local_dev.git
   5. vagrant up { site to build }
       1.  example: vagrant up oncampus.dev 
-  6. If it gets stuck while on step "Check out Repo to the specified location." Do the following:
-      1.  Ctrl-C
-      2.  vagrant provision { site working on }
-      3.  example: vagrant provision housing.dev
+  6. If it gets stuck while on step "Check out Repo to the specified location." 
+      1. To test if it is stuck, do the following:
+        1.  Open a new terminal window
+        2.  Change directory to where you cloned the repo: ~/Sites/local_dev
+        3.  vagrant ssh { site }
+        4.  Change directory to the site on vagrant: cd /var/www/web/site
+        5.  List the contents of that directory (ls). If you see public, it's still working on it.
+      2. If you don't see public, do the following:
+        1.  Ctrl-C
+        2.  vagrant provision { site working on }
+        3.  example: vagrant provision housing.dev
   6. Sit back, relax, and watch the magic happens.
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
