@@ -16,11 +16,16 @@ To use the vagrant file, you will need to have done the following:
   2. Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
   3. Install [Ansible](http://docs.ansible.com/intro_installation.html)
   4. Open a shell prompt (Terminal app on a Mac)
-      1.  Change directory to where ever you keep your local sites, ie: ~/Sites
-      2.  git clone git@bitbucket.org:hdscode/local_dev.git
-  5. vagrant up { site to build }
+      1.  Change directory to where ever you keep your local sites, ie: /Users/username/Sites
+      2.  If you don't have a sub-directory, Sites in your home directory, create it.
+      3.  git clone git@bitbucket.org:hdscode/local_dev.git
+      4.  Change directory into local_dev: cd local_dev
+  5. Make sure you are connected to the VPN, if you are not in the office.
+  6. To see a list of all sites ready to build, do a vagrant status:
+      1. vagrant status
+  7. vagrant up { site to build }
       1.  example: vagrant up oncampus.dev 
-  6. If it gets stuck while on step "Check out Repo to the specified location." 
+  8. If it gets stuck while on step "Check out Repo to the specified location." 
       1. To test if it is stuck, do the following:
         1.  Open a new terminal window
         2.  Change directory to where you cloned the repo: ~/Sites/local_dev
@@ -31,7 +36,7 @@ To use the vagrant file, you will need to have done the following:
         1.  Ctrl-C
         2.  vagrant provision { site working on }
         3.  example: vagrant provision housing.dev
-  6. Sit back, relax, and watch the magic happens.
+  9. Sit back, relax, and watch the magic happens.
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
 
