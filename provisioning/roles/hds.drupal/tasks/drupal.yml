@@ -73,4 +73,6 @@
   file:
     src: "{{ drupal_core_path }}"
     dest: "/home/vagrant/{{ drupal_domain }}"
+    owner: vagrant
+    group: vagrant
     state: link
