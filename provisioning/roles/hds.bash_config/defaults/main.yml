@@ -1,0 +1,7 @@
+---
+# Variables for bash aliases file
+aliases_path: "~/.bash_aliases"
+
+aliases: false
+
+aliases_extra: false
