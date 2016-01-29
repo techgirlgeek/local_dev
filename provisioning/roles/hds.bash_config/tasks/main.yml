@@ -2,7 +2,7 @@
 - name: Copy .bash_aliases file to vagrant
   copy:
     src: config_files/.bash_aliases
-    dest: /home/vagrant/.bash_aliases
+    dest: "{{ aliases_path }}"
     owner: vagrant
     group: vagrant
     mode: 0644

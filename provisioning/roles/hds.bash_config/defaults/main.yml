@@ -1,6 +1,6 @@
 ---
 # Variables for bash aliases file
-aliases_path: "~/.bash_aliases"
+aliases_path: "/home/vagrant/.bash_aliases"
 
 aliases: false
 
