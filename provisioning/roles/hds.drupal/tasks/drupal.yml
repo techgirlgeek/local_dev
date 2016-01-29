@@ -50,7 +50,6 @@
 - name: Set ownership of /var/www/web/ drupal_domain_path
   file:
     path: "{{ drupal_core_path }}"
-    #mode: 0775
     owner: vagrant
     group: vagrant
     state: directory

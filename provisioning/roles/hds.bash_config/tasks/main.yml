@@ -1,2 +1,9 @@
 ---
+- name: Create .bash_aliases file.
+  file:
+    dest: /home/vagrant/.bash_aliases
+    state: touch
+    owner: vagrant
+    group: vagrant
+    mode: 0644
 

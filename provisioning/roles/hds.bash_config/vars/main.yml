@@ -1,5 +1,1 @@
 ---
-- name: Create bash_aliases skel file.
-  lineinfile:
-    dest: /etc/skel/.bash_aliases
-    state: present
