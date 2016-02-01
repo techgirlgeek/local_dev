@@ -1,0 +1,16 @@
+---
+# Variables for bash aliases file
+vagrant_home: "/home/vagrant"
+#git_name: "Karyn Cassio"
+#git_email: "karyn.cassio@colorado.edu"
+
+aliases: false
+
+aliases_extra: false
+
+# vars_prompt:
+#   - name: "git_name"
+#     prompt: "What is your full name for git?"
+
+#   - name: "git_email"
+#     prompt: "What is your CU Email address?"

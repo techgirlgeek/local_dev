@@ -1,0 +1,26 @@
+---
+- name: Copy .bash_aliases file to vagrant
+  copy:
+    src: config_files/.bash_aliases
+    dest: "{{ vagrant_home }}/.bash_aliases"
+    owner: vagrant
+    group: vagrant
+    mode: 0644
+    force: no
+
+- name: Create initial gitconfig file 
+  template:
+    src: gitconfig.j2
+    dest: "{{ vagrant_home }}/.gitconfig"
+    owner: vagrant
+    group: vagrant
+    mode: 0644
+
+- name: Create initial known_hosts file for Vagrant user
+  copy: 
+    src: ~/.ssh/known_hosts
+    dest: "{{ vagrant_home }}/.ssh/known_hosts"
+    owner: vagrant
+    group: vagrant
+    mode: 0644
+    force: no
