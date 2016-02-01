@@ -15,6 +15,7 @@
     owner: vagrant
     group: vagrant
     mode: 0644
+    force: no 
 
 - name: Create initial known_hosts file for Vagrant user
   copy: 

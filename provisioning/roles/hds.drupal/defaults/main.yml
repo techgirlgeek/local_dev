@@ -2,7 +2,7 @@
 # The core version you want to use (e.g. 6.x, 7.x, 8.0.x).
 # drupal_core_version: "7.x"
 
-# Your drupal site's domain name (e.g. 'example.com').
+# Your site's domain name (e.g. 'oncampus').
 drupal_domain: "{{ hostvars[inventory_hostname].ansible_hostname }}"
 
 # The path where Drupal will be downloaded and installed.

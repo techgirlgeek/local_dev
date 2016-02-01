@@ -47,14 +47,6 @@ You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), add
 
 After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 
-### Oncampus.dev special instructions
-
-For now, you will need to do the following before you log into your site on the browser:
-
-  1. vagrant ssh oncampus.dev
-  2. cd to oncampus/sites/all/modules/custom
-  3. git clone git@bitbucket.org:hdscode/myroom.git
-
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 
 ## Author Information

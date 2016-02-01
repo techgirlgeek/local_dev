@@ -44,6 +44,15 @@
     accept_hostkey: true
     key_file: "~/.ssh/priv_key"
 
+- name: Check out MyRoom Repo if host is oncampus.dev
+  git:
+    repo: "git@bitbucket.org:hdscode/myroom.git"
+    dest: "{{ drupal_core_path }}/sites/all/modules/custom/myroom"
+    version: master
+    accept_hostkey: true
+    key_file: "~/.ssh/priv_key"
+  when: drupal_domain == 'oncampus'
+
 # Install Drupal for site
 - name: Install Drupal.
   command: >
