@@ -24,3 +24,11 @@
     group: vagrant
     mode: 0644
     force: no
+
+- name: Add line for pretty prompt with GIT info
+  lineinfile:
+    dest: "{{ vagrant_home }}/.bashrc"
+    create: yes
+    state: present
+    line: "export PS1='\\[\\033[01;32m\\]\\u@\\h\\[\\033[01;34m\\] \\w\\[\\033[01;33m\\]$(__git_ps1)\\[\\033[01;34m\\] \\$\\[\\033[00m\\] '"
+    regexp: "^export PS1\\="

@@ -41,4 +41,4 @@
     - roles/hds.composer
     - roles/hds.drush
     - roles/hds.drupal
-    - roles/hds.bash_config
+    - roles/hds.user_config
