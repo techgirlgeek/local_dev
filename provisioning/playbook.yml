@@ -1,12 +1,12 @@
 ---
-# Ansible playbook for a Drupal LAMP server.
+# Ansible playbook for HDS IT Drupal Local Development sites.
 #
-# @author Jeff Geerling (2014).
+# @author Karyn Cassio (2016).
 
-- hosts: all
+- hosts: local-dev
   gather_facts: yes
   remote_user: vagrant
-  sudo: yes
+  become: yes
 
   vars_files:
     - vars/main.yml
@@ -24,11 +24,11 @@
   vars_prompt:
    - name: "git_name"
      prompt: "What is your full name for git? (Screen will not echo your name.)"
-     #private: yes
+     private: yes
 
    - name: "git_email"
      prompt: "What is your CU Email address? (Screen will not echo your email.)"
-     #private: no
+     private: yes
 
   roles:
     - roles/hds.firewall
