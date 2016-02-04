@@ -1,7 +1,4 @@
 ---
-# The core version you want to use (e.g. 6.x, 7.x, 8.0.x).
-# drupal_core_version: "7.x"
-
 # Your site's domain name (e.g. 'oncampus').
 drupal_domain: "{{ hostvars[inventory_hostname].ansible_hostname }}"
 
@@ -25,6 +22,8 @@ drupal_mysql_database: "{{ drupal_domain }}"
 
 # The Drupal git url from which Drupal will be cloned.
 drupal_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
+
+drupal_repo: "http://git.drupal.org/project/drupal.git"
 
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.

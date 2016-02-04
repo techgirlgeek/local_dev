@@ -43,6 +43,7 @@
     version: master
     accept_hostkey: true
     key_file: "~/.ssh/priv_key"
+  when: drupal_domain != 'sandbox8'
 
 - name: Check out MyRoom Repo if host is oncampus.dev
   git:
@@ -52,6 +53,15 @@
     accept_hostkey: true
     key_file: "~/.ssh/priv_key"
   when: drupal_domain == 'oncampus'
+
+# Download Drupal using Git.
+- name: Check out Drupal Core to the default location.
+  git:
+    repo: "{{ drupal_repo }}"
+    version: '8.0.x'
+    #update: "{{ drupal_keep_updated }}"
+    dest: "{{ drupal_core_path }}"
+  when: drupal_domain == 'sandbox8'
 
 # Install Drupal for site
 - name: Install Drupal.

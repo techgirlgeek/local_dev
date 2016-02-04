@@ -1,6 +1,7 @@
 ---
 - name: Download MySQL Dump for domain
   get_url: url={{ drupal_mysql_dump }} dest=/tmp/{{ drupal_domain }}.sql.gz
+  when: drupal_domain != 'sandbox8'
 
 - name: Create MySQL database for Drupal.
   mysql_db:
