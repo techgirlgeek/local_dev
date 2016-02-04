@@ -61,6 +61,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     nrsm.vm.network :private_network, ip: "10.20.30.62"
   end
 
+  config.vm.define "sandbox8.dev" do |sandbox8|
+    sandbox8.vm.hostname = "sandbox8.dev"
+    sandbox8.vm.network :private_network, ip: "10.20.30.63"
+  end
+
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
