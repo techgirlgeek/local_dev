@@ -22,8 +22,10 @@ To use the vagrant file, you will need to have done the following:
       2. If you don't have a sub-directory, Sites in your home directory, create it.
       3. git clone git@bitbucket.org:hdscode/local_dev.git
       4. Change directory into local_dev: cd local_dev
-      5. Make sure vagrant hostmanager is installed: 
-      6. vagrant plugin install vagrant-hostmanager
+      5. Make sure vagrant hostmanager is installed by running: 
+         1. vagrant plugin list
+      6. To install hostmanager: 
+         1. vagrant plugin install vagrant-hostmanager
   5. Make sure you are connected to the VPN.
   6. To see a list of all sites ready to build, do a vagrant status:
       1. vagrant status
@@ -32,6 +34,13 @@ To use the vagrant file, you will need to have done the following:
   8. Sit back, relax, and watch the magic happens.
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
+
+### Sandbox Installs
+
+If you installed one of the sandboxes, sandbox8.dev or sandbox7.dev:
+
+  1. Username: admin
+  2. Password: admin
 
 ### Setting up your hosts file
 
@@ -47,6 +56,7 @@ You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), add
     10.20.30.61   pac12housing.dev
     10.20.30.62   nrsm.dev
     10.20.30.63   sandbox8.dev
+    10.20.30.64   sandbox7.dev
 
 After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 
