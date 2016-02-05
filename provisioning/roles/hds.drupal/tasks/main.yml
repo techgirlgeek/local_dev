@@ -4,4 +4,4 @@
 - include: web.yml
 - include: drupal.yml
 - include: importdb.yml
-  when: drupal_domain != 'sandbox8'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'

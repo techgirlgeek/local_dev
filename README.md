@@ -15,32 +15,34 @@ To use the vagrant file, you will need to have done the following:
   1. Download and Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
   2. Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
   3. Install [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-on-mac-osx)
-      1. After installing pip, and ready to install ansible, do: pip install ansible==1.9.4
-      2. Unfortunately the new 2.0 version, currently in release, doesn't work with prompts.
+    1. After installing pip, and ready to install ansible, do: pip install ansible==1.9.4
+    2. Unfortunately the new 2.0 version, currently in release, doesn't work with prompts.
   4. Open a shell prompt (Terminal app on a Mac)
-      1. Change directory to where ever you keep your local sites, ie: /Users/username/Sites
-      2. If you don't have a sub-directory, Sites in your home directory, create it.
-      3. git clone git@bitbucket.org:hdscode/local_dev.git
-      4. Change directory into local_dev: cd local_dev
-      5. Make sure vagrant hostmanager is installed by running: 
-         1. vagrant plugin list
-      6. To install hostmanager: 
-         1. vagrant plugin install vagrant-hostmanager
+    1. Change directory to where ever you keep your local sites, ie: /Users/username/Sites
+    2. If you don't have a sub-directory, Sites in your home directory, create it.
+    3. git clone git@bitbucket.org:hdscode/local_dev.git
+    4. Change directory into local_dev: cd local_dev
+    5. Make sure vagrant hostmanager is installed by running: 
+       1. vagrant plugin list
+    6. To install hostmanager: 
+       1. vagrant plugin install vagrant-hostmanager
   5. Make sure you are connected to the VPN.
   6. To see a list of all sites ready to build, do a vagrant status:
-      1. vagrant status
+    1. vagrant status
   7. vagrant up { site to build }
-      1.  example: vagrant up oncampus.dev 
+    1.  example: vagrant up oncampus.dev 
   8. Sit back, relax, and watch the magic happens.
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
 
 ### Sandbox Installs
 
-If you installed one of the sandboxes, sandbox8.dev or sandbox7.dev:
+If you installed one of the sandboxex (sandbox8.dev or sandbox7.dev):
 
-  1. Username: admin
-  2. Password: admin
+  1. If you can't get to the site in your browser, ssh into the box and run: sudo apachectl graceful
+  2. To access the site:
+    1. Username: admin
+    2. Password: admin
 
 ### Setting up your hosts file
 

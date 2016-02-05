@@ -3,7 +3,7 @@
   get_url:
     url: "{{ drupal_mysql_dump }}"
     dest: "/tmp/{{ drupal_domain }}.sql.gz"
-  when: drupal_domain != 'sandbox8'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
 
 - name: Create MySQL database for Drupal.
   mysql_db:

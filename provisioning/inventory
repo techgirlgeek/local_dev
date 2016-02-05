@@ -11,3 +11,4 @@ rha.dev       ansible_ssh_host=10.20.30.60
 pac12housing.dev  ansible_ssh_host=10.20.30.61
 nrsm.dev      ansible_ssh_host=10.20.30.62
 sandbox8.dev  ansible_ssh_host=10.20.30.63
+sandbox7.dev  ansible_ssh_host=10.20.30.64

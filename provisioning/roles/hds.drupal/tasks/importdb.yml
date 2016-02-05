@@ -6,7 +6,3 @@
     target: "/tmp/{{ drupal_domain}}.sql.gz"
   when: drupal_domain != 'sandbox8'
   notify: restart webserver
-
-- name: Final restart of webserver for Sandboxes
-  service: restart webserver
-  when: drupal_domain == 'sandbox8'
