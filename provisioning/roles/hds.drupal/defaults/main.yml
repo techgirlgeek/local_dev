@@ -2,6 +2,9 @@
 # Your site's domain name (e.g. 'oncampus').
 drupal_domain: "{{ hostvars[inventory_hostname].ansible_hostname }}"
 
+# Drupal private files path
+drupal_private_path: "/var/www/web/{{ drupal_domain }}.dev/private"
+
 # The path where Drupal will be downloaded and installed.
 drupal_core_path: "/var/www/web/{{ drupal_domain }}.dev/public"
 

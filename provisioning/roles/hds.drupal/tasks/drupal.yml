@@ -35,6 +35,23 @@
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa bitbucket.org') }}"
     regexp: "^bitbucket\\.org"
 
+- name: Create private files folder
+  file:
+    path: "{{ drupal_private_path }}"
+    state: directory
+    mode: 0775
+    owner: vagrant
+    group: www-data
+
+- name: Add htaccess to private files folder
+  copy:
+    src: .htaccess
+    dest: "{{ drupal_private_path }}/.htaccess"
+    owner: vagrant
+    group: www-data
+    mode: 0444
+    force: yes
+
 # Download Drupal using Git.
 - name: Check out HIT Repo to the specified location.
   git:
