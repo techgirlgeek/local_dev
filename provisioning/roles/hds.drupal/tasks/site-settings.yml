@@ -18,3 +18,9 @@
   command: >
     drush vset file_private_path "{{ drupal_private_path }}"
     chdir={{ drupal_core_path }}
+
+# Turn on devel module
+- name: Turn on Devel module
+  command: >
+    drush en devel -y
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
