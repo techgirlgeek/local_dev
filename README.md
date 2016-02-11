@@ -32,6 +32,8 @@ To use the vagrant file, you will need to have done the following:
   7. vagrant up { site to build }
     1.  example: vagrant up oncampus.dev 
   8. Sit back, relax, and watch the magic happens.
+    1. If your vagrant up fails, or you want to refresh any of your installs, do the following:
+    2. vagrant provision site.dev
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
 
