@@ -12,4 +12,4 @@ alias dfd='drush fd'
 alias sqlc='drush sqlc'
 
 # Front-end Dev aliases
-alias guard='bundle exec guard'
+alias guard='bundle install && bundle exec guard'

@@ -1,0 +1,16 @@
+---
+# Installs Ruby, and bundler gem
+
+# Installs gems from a Gemfile in the current directory
+- name: Install Full Ruby version
+  apt: "name={{ item }} state=installed"
+  with_items:
+    - ruby
+    - ruby-dev
+    - make
+
+- name: Install Ruby gem bundler
+  gem:
+    name: bundler
+    state: latest
+    user_install: no
