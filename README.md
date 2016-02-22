@@ -66,7 +66,7 @@ After that is configured, you could visit http://site.dev/ (where site is whiche
 
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 
-## Getting bundle exec to work
+### Getting bundle exec to work
 
   1. After you install a new VM, to get bundle exec guard working, do the following:
     1. Inside your VM navigate to your theme directory.
