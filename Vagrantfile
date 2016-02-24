@@ -55,9 +55,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     pac12housing.vm.network :private_network, ip: "10.20.30.61"
   end
 
-  config.vm.define "nrsm.dev" do |nrsm|
-    nrsm.vm.hostname = "nrsm.dev"
+  config.vm.define "nrsmboulder.dev" do |nrsm|
+    nrsm.vm.hostname = "nrsmboulder.dev"
     nrsm.vm.network :private_network, ip: "10.20.30.62"
+  end
+
+  config.vm.define "nacurh2012.dev" do |nacurh|
+    nacurh.vm.hostname = "nacurh2012.dev"
+    nacurh.vm.network :private_network, ip: "10.20.30.65"
   end
 
   config.vm.define "sandbox8.dev" do |sandbox8|
