@@ -30,6 +30,6 @@
 # Make sure only administrator email addresses are real.
 - name: Obfuscate non-admin email addresses
   command: >
-    drush sqlq "UPDATE users u LEFT JOIN users_roles ur ON u.uid = ur.uid SET mail = CONCAT(mail, '.replaced') WHERE ur.rid != 3 OR ur.rid IS NULL"
+    drush sqlsan --sanitize-email=%name+%uid@colorado.edu --sanitize-password=no -y
     chdir={{ drupal_core_path }}
   when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
