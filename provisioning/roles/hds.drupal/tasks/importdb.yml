@@ -4,5 +4,4 @@
     db: "{{ drupal_mysql_database }}"
     state: import
     target: "/tmp/{{ drupal_domain}}.sql.gz"
-  when: drupal_domain != 'sandbox8'
   notify: restart webserver
