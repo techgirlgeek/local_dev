@@ -20,7 +20,7 @@ To use the vagrant file, you will need to have done the following:
   4. Open a shell prompt (Probably iterm)
     1. Change directory to where ever you keep your local sites, ie: /Users/username/Sites
     2. If you don't have a sub-directory, Sites in your home directory, create it.
-    3. git clone git@bitbucket.org:hdscode/local_dev.git
+    3. do: git clone git@bitbucket.org:hdscode/local_dev.git
     4. Change directory into local_dev: cd local_dev
     5. Make sure vagrant hostmanager is installed by running: 
        vagrant plugin list
