@@ -32,5 +32,8 @@ drupal_repo: "http://git.drupal.org/project/drupal.git"
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
 drupal_keep_updated: no
 
+# wget URL
+drupal_wget_dump: "ndmps.hds.int.colorado.edu"
+
 # Wget URL for MySQL dumps
-drupal_mysql_dump: "http://ndmps.hds.int.colorado.edu/{{ drupal_domain }}.sql.gz"
+drupal_mysql_dump: "http://{{ drupal_wget_dump }}/{{ drupal_domain }}.sql.gz"
