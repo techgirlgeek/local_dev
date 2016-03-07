@@ -2,7 +2,7 @@
 - name: Waiting for F5 VPN Connection
   wait_for:
     host: "{{ drupal_wget_dump }}"
-    port: 80
+    timeout: 60
 
 - name: Download MySQL Dump for domain
   get_url:
