@@ -10,28 +10,31 @@ This Vagrant profile installs [Drupal](https://drupal.org/) using the [Ansible](
 
 This README file is inside a folder that contains a `Vagrantfile` (hereafter this folder shall be called the [vagrant_root]), which tells Vagrant how to set up your virtual machine in VirtualBox.
 
-To use the vagrant file, you will need to have done the following:
+To use the Vagrantfile, you will need to do the following:
 
-  1. Download and Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-  2. Download and Install [Vagrant](https://www.vagrantup.com/downloads.html)
+### Setting up your environment
+
+  1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+  2. Install [Vagrant](https://www.vagrantup.com/downloads.html)
   3. Install [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-on-mac-osx)
     1. After installing pip, and ready to install ansible, do: sudo pip install ansible==1.9.4
     2. Unfortunately the new 2.0 version, currently in release, doesn't work with prompts.
-  4. Open a shell prompt (Probably iterm)
-    1. Change directory to where ever you keep your local sites, ie: /Users/username/Sites
+
+### Building Your VM(s)
+  
+  1. In iTerm (or other terminal client) change directory to where ever you keep your local sites, ie: /Users/username/Sites
     2. If you don't have a sub-directory, Sites in your home directory, create it.
-    3. do: git clone git@bitbucket.org:hdscode/local_dev.git
-    4. Change directory into local_dev: cd local_dev
-    5. Make sure vagrant hostmanager is installed by running: 
-       vagrant plugin list
-    6. To install hostmanager: 
-       vagrant plugin install vagrant-hostmanager
-  5. Make sure you are connected to the VPN.
-  6. To see a list of all sites ready to build, do a vagrant status:
-     vagrant status
+    3. Clone the local_dev repo: git clone git@bitbucket.org:hdscode/local_dev.git
+      1. Change directory into local_dev: cd local_dev
+    4. Make sure vagrant hostmanager is installed by running: vagrant plugin list
+      1. If hostmanager was not in the plugin list, install 
+      2. To install hostmanager: vagrant plugin install vagrant-hostmanager
+  5. Make sure you are *connected to the Big-IP Edge VPN client*.
+    1. In case you forgot to log into the VPN the build it will wait 60 seconds during the "Waiting for VPN" task for you to connect.
+  6. To see a list of all sites ready to build, do a vagrant status: vagrant status
   7. vagrant up { site to build }
     1.  example: vagrant up oncampus.dev 
-  8. Sit back, relax, and watch the magic happens.
+  8. Sit back, relax, and *watch* the magic happens.
     1. If your vagrant up fails, or you want to refresh any of your installs, do the following:
     2. vagrant provision site.dev
 
@@ -39,7 +42,7 @@ Once the new VM is up and running (after `vagrant up` is complete and you're bac
 
 ### Sandbox Installs
 
-If you installed one of the sandboxex (sandbox8.dev or sandbox7.dev):
+If you installed one of the sandboxes (sandbox8.dev or sandbox7.dev):
 
   1. If you can't get to the site in your browser, ssh into the box and run: sudo apachectl graceful
   2. To access the site:
