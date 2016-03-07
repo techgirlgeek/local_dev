@@ -30,7 +30,7 @@ To use the Vagrantfile, you will need to do the following:
       1. If hostmanager was not in the plugin list, install 
       2. To install hostmanager: `vagrant plugin install vagrant-hostmanager`
   5. Make sure you are ***connected to the Big-IP Edge VPN client***.
-    1. In case you forgot to log into the VPN the build it will wait 60 seconds during the **Waiting for VPN** task for you to connect.
+    1. In case you forgot to log into the VPN the build will pause for 60 seconds during the **Waiting for VPN** task.
   6. To see a list of all sites ready to build, do a vagrant status: vagrant status
   7. vagrant up { site to build }
     1.  example: `vagrant up oncampus.dev` 
