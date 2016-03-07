@@ -117,7 +117,9 @@
 - name: Set permissions properly on files directory.
   file:
     path: "{{ drupal_core_path }}/sites/default/files"
-    mode: 0777
+    owner: www-data
+    group: vagrant
+    mode: "u+rwx,g+rwx,o+rwx,g+s"
     state: directory
     recurse: yes
 
