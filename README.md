@@ -38,7 +38,7 @@ To use the Vagrantfile, you will need to do the following:
     1. If your vagrant up fails, or you want to refresh any of your installs, do the following:
     2. vagrant provision site.dev
 
-Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site}`.
+Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site.dev}`.
 
 ### Sandbox Installs
 
