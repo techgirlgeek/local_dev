@@ -49,6 +49,13 @@ If you installed one of the sandboxes (sandbox8.dev or sandbox7.dev):
     1. Username: admin
     2. Password: admin
 
+### Getting bundle exec to work
+
+  1. After you install a new VM, to get bundle exec guard working, do the following:
+    1. Inside your VM navigate to your theme directory.
+    2. Type the alias: guard
+    3. Guard should be fired up and ready to go.
+
 ### Setting up your hosts file
 
 You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), adding the lines below:
@@ -69,13 +76,6 @@ You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), add
 After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
-
-### Getting bundle exec to work
-
-  1. After you install a new VM, to get bundle exec guard working, do the following:
-    1. Inside your VM navigate to your theme directory.
-    2. Type the alias: guard
-    3. Guard should be fired up and ready to go.
 
 ## Author Information
 
