@@ -24,19 +24,19 @@ To use the Vagrantfile, you will need to do the following:
   
   1. In iTerm (or other terminal client) change directory to where ever you keep your local sites, ie: /Users/username/Sites
     2. If you don't have a sub-directory, Sites in your home directory, create it.
-    3. Clone the local_dev repo: git clone git@bitbucket.org:hdscode/local_dev.git
-      1. Change directory into local_dev: cd local_dev
-    4. Make sure vagrant hostmanager is installed by running: vagrant plugin list
+    3. Clone the local_dev repo: `git clone git@bitbucket.org:hdscode/local_dev.git`
+      1. Change directory into local_dev: `cd local_dev`
+    4. Make sure vagrant hostmanager is installed by running: `vagrant plugin list`
       1. If hostmanager was not in the plugin list, install 
-      2. To install hostmanager: vagrant plugin install vagrant-hostmanager
+      2. To install hostmanager: `vagrant plugin install vagrant-hostmanager`
   5. Make sure you are ***connected to the Big-IP Edge VPN client***.
-    1. In case you forgot to log into the VPN the build it will wait 60 seconds during the "Waiting for VPN" task for you to connect.
+    1. In case you forgot to log into the VPN the build it will wait 60 seconds during the **Waiting for VPN** task for you to connect.
   6. To see a list of all sites ready to build, do a vagrant status: vagrant status
   7. vagrant up { site to build }
-    1.  example: vagrant up oncampus.dev 
+    1.  example: `vagrant up oncampus.dev` 
   8. Sit back, relax, and *watch* the magic happens.
     1. If your vagrant up fails, or you want to refresh any of your installs, do the following:
-    2. vagrant provision site.dev
+    2. `vagrant provision site.dev`
 
 Once the new VM is up and running (after `vagrant up` is complete and you're back at the command prompt), you can log into it via SSH if you'd like by typing in `vagrant ssh {site.dev}`.
 
