@@ -55,7 +55,7 @@
 # Download Drupal using Git.
 - name: Check out HIT Repo to the specified location.
   git:
-    repo: "{{ drupal_repo_url }}"
+    repo: "{{ hds_repo_url }}"
     dest: "{{ drupal_core_path }}"
     version: master
     accept_hostkey: true
@@ -76,7 +76,7 @@
   git:
     repo: "{{ drupal_repo }}"
     version: '8.0.x'
-    #update: "{{ drupal_keep_updated }}"
+    update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
   when: drupal_domain == 'sandbox8'
 
@@ -85,7 +85,7 @@
   git:
     repo: "{{ drupal_repo }}"
     version: '7.x'
-    #update: "{{ drupal_keep_updated }}"
+    update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
   when: drupal_domain == 'sandbox7'
 

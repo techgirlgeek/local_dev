@@ -24,7 +24,7 @@ drupal_mysql_password: password
 drupal_mysql_database: "{{ drupal_domain }}"
 
 # The Drupal git url from which Drupal will be cloned.
-drupal_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
+hds_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 
 drupal_repo: "http://git.drupal.org/project/drupal.git"
 
