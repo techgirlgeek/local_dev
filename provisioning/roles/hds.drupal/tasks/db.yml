@@ -3,6 +3,7 @@
   wait_for:
     host: "{{ drupal_wget_dump }}"
     timeout: 60
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
 
 - name: Download MySQL Dump for domain
   get_url:
