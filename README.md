@@ -48,6 +48,7 @@ If you installed one of the sandboxes (sandbox8.dev or sandbox7.dev):
   2. To access the site:
     1. Username: admin
     2. Password: admin
+  1. The sandboxes are built from GIT. If you want to know more about getting on the most up-to-date branch, etc, checkout: https://www.drupal.org/node/803746
 
 ### Getting bundle exec to work
 
