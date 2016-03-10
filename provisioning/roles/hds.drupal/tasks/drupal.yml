@@ -100,6 +100,13 @@
     chdir={{ drupal_core_path }}
     creates={{ drupal_core_path }}/sites/default/settings.php
 
+- name: Update settings.php file for sandbox8
+  replace:
+    dest: "{{ drupal_core_path }}/sites/default/settings.php"
+    regexp: "^# \\$settings\\['file_private_path'\\] = '';"
+    replace: "$settings['file_private_path'] = '/var/www/web/{{ drupal_domain }}.dev/private';"
+  when: drupal_domain == 'sandbox8'
+
 - name: Set ownership of /var/www/web/ drupal_domain_path
   file:
     path: "{{ drupal_core_path }}"
