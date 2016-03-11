@@ -78,7 +78,7 @@ After that is configured, you could visit http://site.dev/ (where site is whiche
 
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 
-### Post Install
+### Post Install Vagrant Commands
 
 1. To check which VM's are up, built, not built, etc: `vagrant status`
 2. To check the status of a specific VM to the above, with the name of the VM you are interested in. For example: `vagrant status oncampus.dev`
