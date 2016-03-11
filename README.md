@@ -79,14 +79,16 @@ After that is configured, you could visit http://site.dev/ (where site is whiche
 If you'd like additional assistance editing your hosts file, please read [How do I modify my hosts file?](http://www.rackspace.com/knowledge_center/article/how-do-i-modify-my-hosts-file) from Rackspace.
 
 ### Post Install Vagrant Commands
+*Where ever your see vm_name.dev, substitute the VM you are working on, ie: oncampus.dev*
 
 1. To check which VM's are up, built, not built, etc: `vagrant status`
-2. To check the status of a specific VM to the above, with the name of the VM you are interested in. For example: `vagrant status oncampus.dev`
-3. To destroy a VM and start again do: `vagrant destroy vm_name.dev`, where vm_name is the name of the box to update
-4. To update the vagrant box version: `vagrant box update vm_name.dev`, where vm_name is the name of the box to update.
+2. To check the status of a specific VM to the above, with the name of the VM you are interested in. For example: `vagrant status vm_name.dev`
+3. To shut down a VM you are not working on currently (you shouldn't ever have all the VM's running at once, it will bring your computer to a halt.): `vagrant halt vm_name.dev`
+3. To destroy a VM and start again do: `vagrant destroy vm_name.dev`.
+4. To update the vagrant box version: `vagrant box update vm_name.dev`.
 
 ## Author Information
 
-Originally created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+*Originally created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
 
-Edited, and modified, by Karyn Cassio ([techgirlgeek](http://techgirlgeek.com/)), Drupal Software Engineer, HDS IT, 2016.
+Edited, and modified, by Karyn Cassio ([techgirlgeek](http://techgirlgeek.com/)), Drupal Software Engineer, HDS IT, 2016.*
