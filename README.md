@@ -89,6 +89,6 @@ If you'd like additional assistance editing your hosts file, please read [How do
 
 ## Author Information
 
-*Originally created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).
+*Originally created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).*
 
-Edited, and modified, by Karyn Cassio ([techgirlgeek](http://techgirlgeek.com/)), Drupal Software Engineer, HDS IT, 2016.*
+*Edited, and modified, by Karyn Cassio ([techgirlgeek](http://techgirlgeek.com/)), Drupal Software Engineer, HDS IT, 2016.*
