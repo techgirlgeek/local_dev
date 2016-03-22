@@ -65,20 +65,26 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     nacurh.vm.network :private_network, ip: "10.20.30.65"
   end
 
+  config.vm.define "hdshr.dev" do |hdshr|
+    hdshr.vm.hostname = "hdshr.dev"
+    hdshr.vm.network :private_network, ip: "10.20.30.66"
+  end
+
   config.vm.define "sandbox8.dev" do |sandbox8|
     sandbox8.vm.hostname = "sandbox8.dev"
     sandbox8.vm.network :private_network, ip: "10.20.30.63"
   end
 
-  config.vm.define "sandbox7.dev" do |sandbox8|
-    sandbox8.vm.hostname = "sandbox7.dev"
-    sandbox8.vm.network :private_network, ip: "10.20.30.64"
+  config.vm.define "sandbox7.dev" do |sandbox7|
+    sandbox7.vm.hostname = "sandbox7.dev"
+    sandbox7.vm.network :private_network, ip: "10.20.30.64"
   end
 
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.inventory_path = "provisioning/inventory"
+    #ansible.verbose = "vvvv"
   end
 
 end

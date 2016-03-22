@@ -71,6 +71,7 @@ You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), add
     10.20.30.61   pac12housing.dev
     10.20.30.62   nrsmboulder.dev
     10.20.30.65   nacurh2012.dev
+    10.20.30.66   hdshr.dev
     10.20.30.63   sandbox8.dev
     10.20.30.64   sandbox7.dev
 
