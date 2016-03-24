@@ -7,6 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.ssh.insert_key = false
   config.hostmanager.enabled = true
+  config.vm.network "forwarded_port", guest: 3306, host: 3306
 
   config.vm.provider :virtualbox do |v|
     v.memory = 2048
