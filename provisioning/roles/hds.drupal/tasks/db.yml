@@ -1,5 +1,5 @@
 ---
-- name: Waiting for F5 VPN Connection
+- name: Waiting 60 seconds for F5 VPN Connection
   wait_for:
     host: "{{ drupal_wget_dump }}"
     timeout: 60

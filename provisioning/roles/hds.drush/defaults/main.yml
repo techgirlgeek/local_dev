@@ -1,7 +1,7 @@
 ---
 drush_install_path: /usr/local/share/drush
 drush_path: /usr/local/bin/drush
-drush_version: 8.x
+drush_version: 8.0.5
 drush_keep_updated: no
 drush_force_update: no
 
