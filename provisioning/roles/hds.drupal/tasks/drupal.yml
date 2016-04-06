@@ -106,7 +106,7 @@
 # Get required contrib modules before D7 install
 - name: Get Required modules with drush
   command: >
-    drush dl admin_menu features devel views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference -y
+    drush dl admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference -y
     chdir={{ drupal_core_path }}/sites/all/modules/contrib
   when: drupal_domain == 'drupal7'
 
