@@ -3,6 +3,6 @@
 - include: web.yml
 - include: drupal.yml
 - include: importdb.yml
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'
 - include: bundle.yml
 - include: site-settings.yml

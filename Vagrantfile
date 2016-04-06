@@ -94,6 +94,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     sandbox7.vm.network "forwarded_port", guest: 3306, host: 3318
   end
 
+  config.vm.define "drupal7.dev" do |drupal7|
+    drupal7.vm.hostname = "drupal7.dev"
+    drupal7.vm.network :private_network, ip: "10.20.30.67"
+    drupal7.vm.network "forwarded_port", guest: 3306, host: 3319
+  end
+
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"

@@ -74,6 +74,7 @@ You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), add
     10.20.30.66   hdshr.dev
     10.20.30.63   sandbox8.dev
     10.20.30.64   sandbox7.dev
+    10.20.30.67   drupal7.dev
 
 After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 

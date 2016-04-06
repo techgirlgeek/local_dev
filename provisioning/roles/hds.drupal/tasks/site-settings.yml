@@ -32,4 +32,4 @@
   command: >
     drush sqlsan --sanitize-email=%name+%uid@colorado.edu --sanitize-password=no -y
     chdir={{ drupal_core_path }}
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'

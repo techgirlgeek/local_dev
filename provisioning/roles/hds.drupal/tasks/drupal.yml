@@ -60,7 +60,7 @@
     version: master
     accept_hostkey: true
     key_file: "~/.ssh/priv_key"
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'
 
 - name: Check out MyRoom Repo if host is oncampus.dev
   git:
@@ -87,7 +87,28 @@
     version: '7.43'
     update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
-  when: drupal_domain == 'sandbox7'
+  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+# Grab a new install profile for a fresh D7 install.
+- name: Check out Drupal 7 install profile.
+  git:
+    repo: "{{ d7_profile_repo }}"
+    dest: "{{ profile_path }}"
+    key_file: "~/.ssh/priv_key"
+  when: drupal_domain == 'drupal7'
+
+- name: Create contrib modules folder
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/contrib"
+    state: directory
+  when: drupal_domain != 'sandbox8' or drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+# Get required contrib modules before D7 install
+- name: Get Required modules with drush
+  command: >
+    drush dl admin_menu features devel views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference -y
+    chdir={{ drupal_core_path }}/sites/all/modules/contrib
+  when: drupal_domain == 'drupal7'
 
 # Install Drupal for site
 - name: Install Drupal.

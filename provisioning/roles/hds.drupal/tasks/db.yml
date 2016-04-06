@@ -3,13 +3,13 @@
   wait_for:
     host: "{{ drupal_wget_dump }}"
     timeout: 60
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'
 
 - name: Download MySQL Dump for domain
   get_url:
     url: "{{ drupal_mysql_dump }}"
     dest: "/tmp/{{ drupal_domain }}.sql.gz"
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'
 
 - name: Create MySQL database for Drupal.
   mysql_db:
