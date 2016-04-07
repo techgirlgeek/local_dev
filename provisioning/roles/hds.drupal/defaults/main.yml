@@ -23,13 +23,23 @@ drupal_mysql_user: "{{ drupal_domain }}"
 drupal_mysql_password: password
 drupal_mysql_database: "{{ drupal_domain }}"
 
-# The Drupal git url from which Drupal will be cloned.
+key_file: "~/.ssh/priv_key"
+
+# The HDS git url from which the repo will be cloned.
 hds_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 
+# The Drupal git url from which Drupal will be cloned.
 drupal_repo: "http://git.drupal.org/project/drupal.git"
 
+# The HDS repo for the D7 profile
 d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
+
+d7_ldap_repo: "git@bitbucket.org:hdscode/ldap_settings.git"
+
+# The path for putting the profile
 profile_path: "{{ drupal_core_path }}/profiles/hdsit"
+
+required_modules: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm"
 
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
