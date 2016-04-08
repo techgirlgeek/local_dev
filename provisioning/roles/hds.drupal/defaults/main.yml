@@ -37,7 +37,7 @@ d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
 d7_ldap_repo: "git@bitbucket.org:hdscode/ldap_settings.git"
 
 # The HDS repo for the D8 profile
-d7_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
+d8_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
 
 # The path for putting the profile
 profile_path: "{{ drupal_core_path }}/profiles/hdsit"

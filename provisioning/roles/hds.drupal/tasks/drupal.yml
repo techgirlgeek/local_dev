@@ -111,11 +111,23 @@
     state: directory
   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
 
-- name: Create features folder
+- name: Create contrib modules folder for D8
+  file:
+    path: "{{ drupal_core_path }}/modules/contrib"
+    state: directory
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+
+- name: Create D7 features folder
   file:
     path: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
     state: directory
   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+- name: Create D8 features folder
+  file:
+    path: "{{ drupal_core_path }}/modules/features"
+    state: directory
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
 
 # Get required contrib modules before D7 install
 - name: Get Required modules with drush
@@ -128,7 +140,7 @@
 - name: Get Required modules with drush
   command: >
     drush dl {{ d8_req_mods }} -y
-    chdir={{ drupal_core_path }}/sites/all/modules/contrib
+    chdir={{ drupal_core_path }}/modules/contrib
   when: drupal_domain == 'drupal8'
 
 # Get ldap feature
