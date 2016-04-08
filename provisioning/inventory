@@ -15,3 +15,4 @@ hdshr.dev     ansigle_ssh_host=10.20.30.66
 sandbox8.dev  ansible_ssh_host=10.20.30.63
 sandbox7.dev  ansible_ssh_host=10.20.30.64
 drupal7.dev   ansible_ssh_host=10.20.30.67
+drupal8.dev   ansible_ssh_host=10.20.30.68

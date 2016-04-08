@@ -53,3 +53,6 @@ drupal_wget_dump: "ndmps.hds.int.colorado.edu"
 
 # Wget URL for MySQL dumps
 drupal_mysql_dump: "http://{{ drupal_wget_dump }}/{{ drupal_domain }}.sql.gz"
+
+build_exceptions: "drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7' and drupal_domain != 'drupal8'"
+

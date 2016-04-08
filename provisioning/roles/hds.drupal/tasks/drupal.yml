@@ -60,7 +60,7 @@
     version: master
     accept_hostkey: true
     key_file: "{{ key_file }}"
-  when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7'
+  when: "build_exceptions"
 
 - name: Check out MyRoom Repo if host is oncampus.dev
   git:
@@ -78,7 +78,7 @@
     version: '8.0.5'
     update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
-  when: drupal_domain == 'sandbox8'
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
 
 # Download Drupal 7.x using Git.
 - name: Check out Drupal Core 7.x to the default location.
@@ -139,7 +139,7 @@
     dest: "{{ drupal_core_path }}/sites/default/settings.php"
     regexp: "^# \\$settings\\['file_private_path'\\] = '';"
     replace: "$settings['file_private_path'] = '/var/www/web/{{ drupal_domain }}.dev/private';"
-  when: drupal_domain == 'sandbox8'
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
 
 - name: Set ownership of /var/www/web/ drupal_domain_path
   file:

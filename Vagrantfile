@@ -99,6 +99,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     drupal7.vm.network "forwarded_port", guest: 3306, host: 3319
   end
 
+  config.vm.define "drupal8.dev" do |drupal8|
+    drupal8.vm.hostname = "drupal8.dev"
+    drupal8.vm.network :private_network, ip: "10.20.30.68"
+    drupal8.vm.network "forwarded_port", guest: 3306, host: 3320
+  end
+
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
     ansible.playbook = "provisioning/playbook.yml"
