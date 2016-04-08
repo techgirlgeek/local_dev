@@ -97,6 +97,14 @@
     key_file: "{{ key_file }}"
   when: drupal_domain == 'drupal7'
 
+# Grab a new install profile for a fresh D7 install.
+- name: Check out Drupal 8 install profile.
+  git:
+    repo: "{{ d8_profile_repo }}"
+    dest: "{{ profile_path }}"
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'drupal8'
+
 - name: Create contrib modules folder
   file:
     path: "{{ drupal_core_path }}/sites/all/modules/contrib"
@@ -112,10 +120,18 @@
 # Get required contrib modules before D7 install
 - name: Get Required modules with drush
   command: >
-    drush dl {{ required_modules }} -y
+    drush dl {{ d7_req_mods }} -y
     chdir={{ drupal_core_path }}/sites/all/modules/contrib
   when: drupal_domain == 'drupal7'
 
+# Get required contrib modules before D8 install
+- name: Get Required modules with drush
+  command: >
+    drush dl {{ d8_req_mods }} -y
+    chdir={{ drupal_core_path }}/sites/all/modules/contrib
+  when: drupal_domain == 'drupal8'
+
+# Get ldap feature
 - name: Check out ldap settings repo.
   git:
     repo: "{{ d7_ldap_repo }}"

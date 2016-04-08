@@ -36,10 +36,14 @@ d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
 
 d7_ldap_repo: "git@bitbucket.org:hdscode/ldap_settings.git"
 
+# The HDS repo for the D8 profile
+d7_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
+
 # The path for putting the profile
 profile_path: "{{ drupal_core_path }}/profiles/hdsit"
 
-required_modules: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm"
+d7_req_mods: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm pathauto token"
+d8_req_mods: "token ctools webform devel features pathauto ldap"
 
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
@@ -54,5 +58,6 @@ drupal_wget_dump: "ndmps.hds.int.colorado.edu"
 # Wget URL for MySQL dumps
 drupal_mysql_dump: "http://{{ drupal_wget_dump }}/{{ drupal_domain }}.sql.gz"
 
+# Exceptions to the build requests for all sandbox and start up dev sites.
 build_exceptions: "drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7' and drupal_domain != 'drupal8'"
 
