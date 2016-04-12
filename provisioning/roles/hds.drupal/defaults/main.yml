@@ -31,6 +31,9 @@ hds_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 # The Drupal git url from which Drupal will be cloned.
 drupal_repo: "http://git.drupal.org/project/drupal.git"
 
+d7_version: 7.43
+d8_version: 8.0.6
+
 # The HDS repo for the D7 profile
 d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
 
@@ -43,7 +46,7 @@ d8_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
 profile_path: "{{ drupal_core_path }}/profiles/hdsit"
 
 d7_req_mods: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm pathauto token"
-d8_req_mods: "token ctools webform devel features pathauto ldap"
+d8_req_mods: "token ctools webform devel features pathauto ldap config_update admin_toolbar"
 
 # Whether to update the repo above to the latest commit in the branch identified
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.

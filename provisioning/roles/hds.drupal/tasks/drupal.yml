@@ -75,7 +75,7 @@
 - name: Check out Drupal Core 8.0.x to the default location.
   git:
     repo: "{{ drupal_repo }}"
-    version: '8.0.5'
+    version: "{{ d8_version }}"
     update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
@@ -84,7 +84,7 @@
 - name: Check out Drupal Core 7.x to the default location.
   git:
     repo: "{{ drupal_repo }}"
-    version: '7.43'
+    version: "{{ d7_version }}"
     update: "{{ drupal_keep_updated }}"
     dest: "{{ drupal_core_path }}"
   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
@@ -117,6 +117,12 @@
     state: directory
   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
 
+- name: Create D8 Profile Module path
+  file:
+    path: "{{ profile_path }}/modules"
+    state: directory
+  when: drupal_domain == 'drupal8'
+
 - name: Create D7 features folder
   file:
     path: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
@@ -140,7 +146,7 @@
 - name: Get Required modules with drush
   command: >
     drush dl {{ d8_req_mods }} -y
-    chdir={{ drupal_core_path }}/modules/contrib
+    chdir={{ profile_path }}/modules
   when: drupal_domain == 'drupal8'
 
 # Get ldap feature
