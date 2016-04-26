@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: "Karyn Cassio"
+  description: "This role adds any new components needed for VM installs." 
+  company: "CU Boulder"
+  license: license (GPLv2, CC-BY, etc)
+  min_ansible_version: 1.9.x
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  - name: Debian
+    versions:
+    - all
+  categories:
+  - system
+dependencies: []
