@@ -39,13 +39,15 @@ d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
 
 d7_ldap_repo: "git@bitbucket.org:hdscode/ldap_settings.git"
 
+d7_wysiwyg_repo: "git@bitbucket.org:hdscode/wysiwyg_feature.git"
+
 # The HDS repo for the D8 profile
 d8_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
 
 # The path for putting the profile
 profile_path: "{{ drupal_core_path }}/profiles/hdsit"
 
-d7_req_mods: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm pathauto token filter media wysiwyg wysiwyg_filter"
+d7_req_mods: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm pathauto token media wysiwyg wysiwyg_filter file_entity"
 d8_req_mods: "token ctools webform devel features pathauto ldap config_update admin_toolbar"
 
 # Whether to update the repo above to the latest commit in the branch identified
