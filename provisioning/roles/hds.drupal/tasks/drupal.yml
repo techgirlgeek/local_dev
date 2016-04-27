@@ -123,9 +123,15 @@
     state: directory
   when: drupal_domain == 'drupal8'
 
-- name: Create D7 features folder
+- name: Create D7 ldap features folder
   file:
     path: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
+    state: directory
+  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+- name: Create D7 WYSIWYG features folder
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/features/hdsit_wysiwyg_config"
     state: directory
   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
 
@@ -154,6 +160,14 @@
   git:
     repo: "{{ d7_ldap_repo }}"
     dest: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'drupal7'
+
+# Get ldap feature
+- name: Check out WYSIWYG settings repo.
+  git:
+    repo: "{{ d7_ldap_repo }}"
+    dest: "{{ drupal_core_path }}/sites/all/modules/features/hdsit_wysiwyg_config"
     key_file: "{{ key_file }}"
   when: drupal_domain == 'drupal7'
 

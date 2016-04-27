@@ -7,3 +7,4 @@
 - include: bundle.yml
 - include: site-settings.yml
 - include: wysiwyg.yml
+  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
