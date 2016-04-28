@@ -32,7 +32,7 @@ hds_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
 drupal_repo: "http://git.drupal.org/project/drupal.git"
 
 d7_version: 7.43
-d8_version: 8.0.6
+d8_version: 8.1.0
 
 # The HDS repo for the D7 profile
 d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
