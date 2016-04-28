@@ -63,3 +63,9 @@ drupal_mysql_dump: "http://{{ drupal_wget_dump }}/{{ drupal_domain }}.sql.gz"
 # Exceptions to the build requests for all sandbox and start up dev sites.
 build_exceptions: "drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7' and drupal_domain != 'drupal8'"
 
+# CKEditor d8_version
+ckeditor_version: 3.6.6.2
+
+# CKEditor Download Location
+ckeditor_url: "http://download.cksource.com/CKEditor/CKEditor/CKEditor%20{{ ckeditor_version }}/ckeditor_{{ ckeditor_version }}.zip"
+
