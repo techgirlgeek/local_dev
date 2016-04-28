@@ -54,9 +54,6 @@ d8_req_mods: "token ctools webform devel features pathauto ldap config_update ad
 # by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
 drupal_keep_updated: no
 
-# Which install profile to use generally
-# drupal_install_profile: standard
-
 # wget URL
 drupal_wget_dump: "ndmps.hds.int.colorado.edu"
 
