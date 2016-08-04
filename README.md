@@ -6,6 +6,8 @@ Vagrant and VirtualBox (or some other VM provider) can be used to quickly build 
 
 This Vagrant profile installs [Drupal](https://drupal.org/) using the [Ansible](http://www.ansible.com/) provisioner.
 
+When using sudo and prompted for a password, use your computer password.
+
 ## Getting Started
 
 This README file is inside a folder that contains a `Vagrantfile` (hereafter this folder shall be called the [vagrant_root]), which tells Vagrant how to set up your virtual machine in VirtualBox.
