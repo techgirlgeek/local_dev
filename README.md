@@ -16,7 +16,7 @@ To use the Vagrantfile, you will need to do the following:
 
   1. Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
   2. Install [Vagrant](https://www.vagrantup.com/downloads.html)
-  3. Install [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-on-mac-osx) Use your computer password when prompted.
+  3. Install [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-on-mac-osx) 
     1. After installing pip, and ready to install ansible, do: sudo pip install ansible==1.9.4
     2. Unfortunately the new 2.0 version, currently in release, doesn't work with prompts.
 
