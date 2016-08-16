@@ -4,17 +4,23 @@
     host: "{{ drupal_wget_dump }}"
     timeout: 60
   when: "build_exceptions"
+  tags:
+    - dbrefresh
 
 - name: Download MySQL Dump for domain
   get_url:
     url: "{{ drupal_mysql_dump }}"
     dest: "/tmp/{{ drupal_domain }}.sql.gz"
   when: "build_exceptions"
+  tags: 
+    - dbrefresh
 
 - name: Create MySQL database for Drupal.
   mysql_db:
     db: "{{ drupal_mysql_database }}"
     state: present
+  tags:
+    - dbrefresh
 
 - name: Create a MySQL user for Drupal.
   mysql_user:
@@ -26,3 +32,5 @@
     - 127.0.0.1
     - ::1
     - localhost
+  tags:
+    - dbrefresh

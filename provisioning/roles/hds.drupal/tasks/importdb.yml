@@ -5,3 +5,5 @@
     state: import
     target: "/tmp/{{ drupal_domain}}.sql.gz"
   notify: restart webserver
+  tags:
+    - dbrefresh
