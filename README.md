@@ -107,6 +107,9 @@ vi Vagrantfile
 3. Uncomment that line.
 4. Save your Vagrantfile: esc :wq
 5. Run vagrant provision vm_name.dev
+6. `vi Vagrantfile`
+7. Comment out that line again.
+8. Save your Vagrantfile
 
 ## Author Information
 
