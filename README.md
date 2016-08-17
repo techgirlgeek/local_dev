@@ -104,7 +104,7 @@ vi Vagrantfile
 3. Uncomment that line.
 4. Save your Vagrantfile: esc :wq
 5. Run vagrant provision vm_name.dev
-   **NOTE**: When you are done with the provision, you will see an error regarding restarting the webserver. Ignore that error. Still looking for a way to skip that step.
+   1. **NOTE**: When you are done with the provision, you will see an error regarding restarting the webserver. Ignore that error. Still looking for a way to skip that step.
 6. `vi Vagrantfile`
 7. Comment out that line again.
 8. Save your Vagrantfile
