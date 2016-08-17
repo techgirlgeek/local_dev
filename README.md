@@ -92,6 +92,22 @@ If you'd like additional assistance editing your hosts file, please read [How do
 3. To destroy a VM and start again do: `vagrant destroy vm_name.dev`.
 4. To update the vagrant box version: `vagrant box update vm_name.dev`.
 
+### Update local_dev database only, without provisioning the whole server
+
+1. Edit (vi) Vagrantfile in your local_dev 
+```
+#!bash
+
+cd local_dev
+vi Vagrantfile
+```
+
+2. In Vagrantfile go to the bottom of the file, to where you see the line: #ansible.tags = "dbrefresh".
+![VagrantFileEdit.png](https://bitbucket.org/repo/BqpGrj/images/2177281424-VagrantFileEdit.png)
+3. Uncomment that line.
+4. Save your Vagrantfile: esc :wq
+5. Run vagrant provision vm_name.dev
+
 ## Author Information
 
 *Originally created in 2014 by [Jeff Geerling](http://jeffgeerling.com/), author of [Ansible for DevOps](http://ansiblefordevops.com/).*
