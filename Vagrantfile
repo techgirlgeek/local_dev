@@ -39,22 +39,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     bearcreek.vm.network "forwarded_port", guest: 3306, host: 3309
   end
 
-  config.vm.define "stampede.dev" do |stampede|
-    stampede.vm.hostname = "stampede.dev"
-    stampede.vm.network :private_network, ip: "10.20.30.58"
-    stampede.vm.network "forwarded_port", guest: 3306, host: 3310
-  end
-
   config.vm.define "childcare.dev" do |childcare|
     childcare.vm.hostname = "childcare.dev"
     childcare.vm.network :private_network, ip: "10.20.30.59"
     childcare.vm.network "forwarded_port", guest: 3306, host: 3311
-  end
-
-  config.vm.define "rha.dev" do |rha|
-    rha.vm.hostname = "rha.dev"
-    rha.vm.network :private_network, ip: "10.20.30.60"
-    rha.vm.network "forwarded_port", guest: 3306, host: 3312
   end
 
   config.vm.define "pac12housing.dev" do |pac12housing|
@@ -73,12 +61,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     nacurh.vm.hostname = "nacurh2012.dev"
     nacurh.vm.network :private_network, ip: "10.20.30.65"
     nacurh.vm.network "forwarded_port", guest: 3306, host: 3315
-  end
-
-  config.vm.define "hdshr.dev" do |hdshr|
-    hdshr.vm.hostname = "hdshr.dev"
-    hdshr.vm.network :private_network, ip: "10.20.30.66"
-    hdshr.vm.network "forwarded_port", guest: 3306, host: 3316
   end
 
   config.vm.define "sandbox8.dev" do |sandbox8|
