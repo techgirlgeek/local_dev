@@ -6,12 +6,14 @@
     drush vset bakery_master "http://{{ drupal_domain }}.dev/"
     chdir={{ drupal_core_path }}
   when: drupal_domain == 'oncampus'
+  tags: dbrefresh
 
 - name: Oncampus.dev Bakery domain settings
   command: >
     drush vset bakery_master "http://{{ drupal_domain }}.dev/"
     chdir={{ drupal_core_path }}
   when: drupal_domain == 'oncampus'
+  tags: dbrefresh
 
 # Set file system locations
 - name: Set Private file system path
@@ -19,6 +21,7 @@
     drush vset file_private_path "{{ drupal_private_path }}"
     chdir={{ drupal_core_path }}
   when: drupal_domain != 'sandbox8' and drupal_domain != 'drupal8'
+  tags: dbrefresh
 
 # Turn on devel module
 - name: Turn on Devel module
@@ -26,6 +29,7 @@
     drush en devel -y
     chdir={{ drupal_core_path }}
   when: drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7'
+  tags: dbrefresh
 
 # Make sure only administrator email addresses are real.
 - name: Obfuscate non-admin email addresses
@@ -33,3 +37,4 @@
     drush sqlsan --sanitize-email=%name+%uid@colorado.edu --sanitize-password=no -y
     chdir={{ drupal_core_path }}
   when: "build_exceptions"
+  tags: dbrefresh
