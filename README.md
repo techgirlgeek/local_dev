@@ -91,7 +91,8 @@ If you'd like additional assistance editing your hosts file, please read [How do
 
 ### Update local_dev database only, without provisioning the whole server
 
-1. Edit (vi) Vagrantfile in your local_dev 
+1. Make sure the vagrant machine you are wanting to update is already up.
+2. Edit (vi) Vagrantfile in your local_dev 
 ```
 #!bash
 
@@ -103,10 +104,10 @@ vi Vagrantfile
 ![VagrantFileEdit.png](https://bitbucket.org/repo/BqpGrj/images/2177281424-VagrantFileEdit.png)
 3. Uncomment that line.
 4. Save your Vagrantfile: esc :wq
-5. Run vagrant provision vm_name.dev
+5. Run `vagrant provision vm_name.dev`
     * **NOTE**: When you are done with the provision, you will see an error regarding restarting the webserver. Ignore that error. Still looking for a way to skip that step.
 6. `vi Vagrantfile`
-7. Comment out that line again.
+7. Comment out that line again (adding the # at the beginning of the ansible.tags line). Or you can re-checkout the file: `git checkout Vagrantfile`.
 8. Save your Vagrantfile
 
 ## Author Information
