@@ -106,10 +106,11 @@ vi Vagrantfile
 4. Save your Vagrantfile: esc :wq
 5. Run `vagrant provision vm_name.dev`
     * **NOTE**: When you are done with the provision, you will see an error regarding restarting the webserver. Ignore that error. Still looking for a way to skip that step.
-6. `vi Vagrantfile`
-    1. Comment out that line again (adding the # at the beginning of the ansible.tags line). 
-    2. Or you can re-checkout the file: `git checkout Vagrantfile`.
-8. Save your Vagrantfile
+6. Reset the Vagrantfile. You have two options to do this:
+    1. `vi Vagrantfile`
+        * Comment out that line again (adding the # at the beginning of the ansible.tags line). 
+        * Save your Vagrantfile
+    2. Or you checkout Vagrantfile from the repo: `git checkout Vagrantfile`.
 
 ## Author Information
 
