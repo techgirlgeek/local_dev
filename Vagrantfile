@@ -92,7 +92,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "provisioning/playbook.yml"
     ansible.inventory_path = "provisioning/inventory"
     #ansible.verbose = "vvvv"
-    ansible.tags = "dbrefresh"
+    #ansible.tags = "dbrefresh"
   end
 
 end
