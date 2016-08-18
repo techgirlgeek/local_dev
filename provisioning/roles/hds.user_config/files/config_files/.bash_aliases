@@ -13,3 +13,6 @@ alias sqlc='drush sqlc'
 
 # Front-end Dev aliases
 alias guard='bundle install && bundle exec guard'
+
+# Git pull
+alias gpullst='git pull origin staging;drush fra -y;dcc'
