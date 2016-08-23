@@ -1,20 +1,4 @@
 ---
-# Set bakery settings in oncampus.dev
-- name: Oncampus.dev Bakery domain settings
-  command: >
-    drush vset bakery_domain ".{{ drupal_domain }}.dev"
-    drush vset bakery_master "http://{{ drupal_domain }}.dev/"
-    chdir={{ drupal_core_path }}
-  when: drupal_domain == 'oncampus'
-  tags: dbrefresh
-
-- name: Oncampus.dev Bakery domain settings
-  command: >
-    drush vset bakery_master "http://{{ drupal_domain }}.dev/"
-    chdir={{ drupal_core_path }}
-  when: drupal_domain == 'oncampus'
-  tags: dbrefresh
-
 # Set file system locations
 - name: Set Private file system path
   command: >
