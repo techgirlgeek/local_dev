@@ -1,0 +1,18 @@
+---
+# Ansible playbook to set up HDS IT Drupal Local Development environment.
+#
+# @author Grant Soyka (2016).
+
+- hosts: localhost
+  gather_facts: yes
+  connection: local
+
+  vars_prompt:
+   - name: "git_name"
+     prompt: "What is your full name for git?"
+
+   - name: "git_email"
+     prompt: "What is your CU Email address?"
+
+  roles:
+    - roles/hds.localhost
