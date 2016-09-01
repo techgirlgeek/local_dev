@@ -64,17 +64,9 @@ If you installed one of the sandboxes (sandbox8.dev or sandbox7.dev):
 
 You need to modify your host machine's hosts file (Mac/Linux: `/etc/hosts`), adding the lines below:
 
-    10.20.30.54   housing.dev
-    10.20.30.55   oncampus.dev
-    10.20.30.56   cucs.dev
-    10.20.30.57   bearcreek.dev
-    10.20.30.59   childcare.dev
-    10.20.30.61   pac12housing.dev
-    10.20.30.62   nrsmboulder.dev
-    10.20.30.65   nacurh2012.dev
-    10.20.30.63   sandbox8.dev
-    10.20.30.64   sandbox7.dev
+    10.20.30.50   client.dev
     10.20.30.67   drupal7.dev
+    10.20.30.68   drupal8.dev
 
 After that is configured, you could visit http://site.dev/ (where site is whichever site you just installed) in a browser, and you'll see the Drupal site's home page.
 
