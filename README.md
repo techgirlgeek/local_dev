@@ -36,7 +36,7 @@ To use the Vagrantfile, you will need to do the following:
     1. In case you forgot to log into the VPN the build will pause for 60 seconds during the **Waiting for VPN** task.
   6. To see a list of all sites ready to build, do a vagrant status: vagrant status
   7. vagrant up { site to build }
-    1.  example: `vagrant up oncampus.dev` 
+    1.  example: `vagrant up client.dev` 
   8. Sit back, relax, and *watch* the magic happens.
     1. If your vagrant up fails, or you want to refresh any of your installs, do the following:
     2. `vagrant provision site.dev`
