@@ -27,7 +27,7 @@
      private: yes
 
    - name: "git_email"
-     prompt: "What is your CU Email address? (Email will not be echoed.)"
+     prompt: "What is your Email address? (Email will not be echoed.)"
      private: yes
 
   roles:
