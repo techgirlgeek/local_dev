@@ -1,0 +1,71 @@
+---
+# Your site's domain name (e.g. 'oncampus').
+drupal_domain: "{{ hostvars[inventory_hostname].ansible_hostname }}"
+
+# Drupal private files path
+drupal_private_path: "/var/www/web/{{ drupal_domain }}.dev/private"
+
+# The path where Drupal will be downloaded and installed.
+drupal_core_path: "/var/www/web/{{ drupal_domain }}.dev/public"
+
+# Your Drupal site name.
+drupal_site_name: "{{ drupal_domain }} Dev"
+
+# Your Drupal site admin account credentials.
+drupal_admin_name: admin
+drupal_admin_password: admin
+
+# The webserver you're running (e.g. 'apache2', 'httpd', 'nginx').
+drupal_webserver_daemon: apache2
+
+# Drupal MySQL database username and password.
+drupal_mysql_user: "{{ drupal_domain }}"
+drupal_mysql_password: password
+drupal_mysql_database: "{{ drupal_domain }}"
+
+key_file: "~/.ssh/priv_key"
+
+# The HDS git url from which the repo will be cloned.
+hds_repo_url: "git@bitbucket.org:hdscode/{{ drupal_domain }}.git"
+
+# The Drupal git url from which Drupal will be cloned.
+drupal_repo: "http://git.drupal.org/project/drupal.git"
+
+d7_version: 7.50
+d8_version: 8.1.8
+
+# The HDS repo for the D7 profile
+d7_profile_repo: "git@bitbucket.org:hdscode/d7-profile.git"
+
+d7_ldap_repo: "git@bitbucket.org:hdscode/ldap_settings.git"
+
+d7_wysiwyg_repo: "git@bitbucket.org:hdscode/wysiwyg_feature.git"
+
+# The HDS repo for the D8 profile
+d8_profile_repo: "git@bitbucket.org:hdscode/d8-profile.git"
+
+# The path for putting the profile
+profile_path: "{{ drupal_core_path }}/profiles/hdsit"
+
+d7_req_mods: "admin_menu features devel views admin_views ctools webform module_filter date link ldap panels panels_everywhere omega entity entityreference strongarm pathauto token media wysiwyg wysiwyg_filter file_entity"
+d8_req_mods: "token ctools webform devel features pathauto ldap config_update admin_toolbar"
+
+# Whether to update the repo above to the latest commit in the branch identified
+# by `drupal_core_version` (the git tag or branch) whenever this playbook runs.
+drupal_keep_updated: no
+
+# wget URL
+drupal_wget_dump: "ndmps.hds.int.colorado.edu"
+
+# Wget URL for MySQL dumps
+drupal_mysql_dump: "http://{{ drupal_wget_dump }}/{{ drupal_domain }}.sql.gz"
+
+# Exceptions to the build requests for all sandbox and start up dev sites.
+build_exceptions: "drupal_domain != 'sandbox8' and drupal_domain != 'sandbox7' and drupal_domain != 'drupal7' and drupal_domain != 'drupal8'"
+
+# CKEditor d8_version
+ckeditor_version: 3.6.6.2
+
+# CKEditor Download Location
+ckeditor_url: "http://download.cksource.com/CKEditor/CKEditor/CKEditor%20{{ ckeditor_version }}/ckeditor_{{ ckeditor_version }}.zip"
+

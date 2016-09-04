@@ -1,0 +1,213 @@
+---
+# Download Drupal using drush (--no-cache prevents checksum error).
+# - name: "Drupal: Download Drupal Core."
+#   command:
+#     drush dl drupal-{{ drupal_core_version }} --no-cache
+#     creates={{ drupal_core_path }}/index.php
+#     chdir=/var/www
+# Get ssh keys
+
+- name: Create folder for root ssh key
+  file:
+    path: ~/.ssh
+    state: directory
+    mode: 0744
+
+- name: Send key to remote ssh user
+  copy:
+    src: ~/.ssh/id_rsa
+    dest: "{{ key_file }}"
+    mode: 0600
+
+- name: Send key to remote vagrant user
+  copy:
+    src: ~/.ssh/id_rsa
+    dest: /home/vagrant/.ssh/id_rsa
+    owner: vagrant
+    group: vagrant
+    mode: 0600
+
+- name: Ensure bitbucket.org is a known host
+  lineinfile:
+    dest: /root/.ssh/known_hosts
+    create: yes
+    state: present
+    line: "{{ lookup('pipe', 'ssh-keyscan -t rsa bitbucket.org') }}"
+    regexp: "^bitbucket\\.org"
+
+- name: Create private files folder
+  file:
+    path: "{{ drupal_private_path }}"
+    state: directory
+    mode: 0775
+    owner: vagrant
+    group: www-data
+
+- name: Add htaccess to private files folder
+  copy:
+    src: .htaccess
+    dest: "{{ drupal_private_path }}/.htaccess"
+    owner: vagrant
+    group: www-data
+    mode: 0444
+    force: yes
+
+# Download Drupal using Git.
+- name: Check out HIT Repo to the specified location.
+  git:
+    repo: "{{ hds_repo_url }}"
+    dest: "{{ drupal_core_path }}"
+    version: master
+    accept_hostkey: true
+    key_file: "{{ key_file }}"
+  when: "build_exceptions"
+
+- name: Check out MyRoom Repo if host is oncampus.dev
+  git:
+    repo: "git@bitbucket.org:hdscode/myroom.git"
+    dest: "{{ drupal_core_path }}/sites/all/modules/custom/myroom"
+    version: master
+    accept_hostkey: true
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'oncampus'
+
+# Download Drupal 8.0.x using Git.
+- name: Check out Drupal Core 8.0.x to the default location.
+  git:
+    repo: "{{ drupal_repo }}"
+    version: "{{ d8_version }}"
+    update: "{{ drupal_keep_updated }}"
+    dest: "{{ drupal_core_path }}"
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+
+# Download Drupal 7.x using Git.
+- name: Check out Drupal Core 7.x to the default location.
+  git:
+    repo: "{{ drupal_repo }}"
+    version: "{{ d7_version }}"
+    update: "{{ drupal_keep_updated }}"
+    dest: "{{ drupal_core_path }}"
+  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+# Grab a new install profile for a fresh D7 install.
+- name: Check out Drupal 7 install profile.
+  git:
+    repo: "{{ d7_profile_repo }}"
+    dest: "{{ profile_path }}"
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'drupal7'
+
+# Grab a new install profile for a fresh D7 install.
+- name: Check out Drupal 8 install profile.
+  git:
+    repo: "{{ d8_profile_repo }}"
+    dest: "{{ profile_path }}"
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'drupal8'
+
+- name: Create contrib modules folder
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/contrib"
+    state: directory
+  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+
+- name: Create contrib modules folder for D8
+  file:
+    path: "{{ drupal_core_path }}/modules/contrib"
+    state: directory
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+
+- name: Create D8 Profile Module path
+  file:
+    path: "{{ profile_path }}/modules"
+    state: directory
+  when: drupal_domain == 'drupal8'
+
+- name: Create D7 ldap features folder
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
+    state: directory
+  when: drupal_domain == 'drupal7'
+
+- name: Create D8 features folder
+  file:
+    path: "{{ drupal_core_path }}/modules/features"
+    state: directory
+    owner: vagrant
+    group: www-data
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+
+# Get required contrib modules before D7 install
+- name: Get Required modules with drush
+  command: >
+    drush dl {{ d7_req_mods }} -y
+    chdir={{ drupal_core_path }}/sites/all/modules/contrib
+  when: drupal_domain == 'drupal7'
+
+# Get required contrib modules before D8 install
+- name: Get Required modules with drush
+  command: >
+    drush dl {{ d8_req_mods }} -y
+    chdir={{ profile_path }}/modules
+  when: drupal_domain == 'drupal8'
+
+# Get ldap feature
+- name: Check out ldap settings repo.
+  git:
+    repo: "{{ d7_ldap_repo }}"
+    dest: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
+    key_file: "{{ key_file }}"
+  when: drupal_domain == 'drupal7'
+
+- name: include wysiwyg
+  include: wysiwyg.yml
+  when: drupal_domain == 'drupal7'
+
+# Install Drupal for site
+- name: Install Drupal.
+  command: >
+    drush si -y
+    --site-name="{{ drupal_site_name }}"
+    --account-name={{ drupal_admin_name }}
+    --account-pass={{ drupal_admin_password}}
+    --db-url=mysql://{{ drupal_mysql_user }}:{{ drupal_mysql_password }}@localhost/{{ drupal_mysql_database }}
+    chdir={{ drupal_core_path }}
+    creates={{ drupal_core_path }}/sites/default/settings.php
+
+- name: Update settings.php file for sandbox8
+  replace:
+    dest: "{{ drupal_core_path }}/sites/default/settings.php"
+    regexp: "^# \\$settings\\['file_private_path'\\] = '';"
+    replace: "$settings['file_private_path'] = '/var/www/web/{{ drupal_domain }}.dev/private';"
+  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+
+- name: Set ownership of /var/www/web/ drupal_domain_path
+  file:
+    path: "{{ drupal_core_path }}"
+    owner: vagrant
+    group: www-data
+    state: directory
+    recurse: yes
+
+# SEE: https://drupal.org/node/2121849#comment-8413637
+- name: Set permissions properly on settings.php.
+  file:
+    path: "{{ drupal_core_path }}/sites/default/settings.php"
+    mode: 0644
+
+- name: Set permissions properly on files directory.
+  file:
+    path: "{{ drupal_core_path }}/sites/default/files"
+    owner: vagrant
+    group: www-data
+    mode: 0775
+    state: directory
+    recurse: yes
+
+- name: Create symbolic link to new web directory in home
+  file:
+    src: "{{ drupal_core_path }}"
+    dest: "/home/vagrant/{{ drupal_domain }}"
+    owner: vagrant
+    group: vagrant
+    state: link

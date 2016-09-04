@@ -1,0 +1,9 @@
+---
+- name: Import MySQL database for Drupal (This may take some time).
+  mysql_db:
+    db: "{{ drupal_mysql_database }}"
+    state: import
+    target: "/tmp/{{ drupal_domain}}.sql.gz"
+  notify: restart webserver
+  tags:
+    - dbrefresh

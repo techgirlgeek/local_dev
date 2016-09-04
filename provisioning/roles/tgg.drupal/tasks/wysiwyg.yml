@@ -1,0 +1,30 @@
+---
+# Create WYSIWYG related folders
+- name: Create D7 WYSIWYG features folder
+  file:
+    path: "{{ drupal_core_path }}/sites/all/modules/features/hdsit_wysiwyg_config"
+    owner: vagrant
+    group: vagrant
+    state: directory
+
+# Get WYSIWYG feature
+- name: Check out WYSIWYG settings repo.
+  git:
+    repo: "{{ d7_wysiwyg_repo }}"
+    dest: "{{ drupal_core_path }}/sites/all/modules/features/hdsit_wysiwyg_config"
+    key_file: "{{ key_file }}"
+
+# Download the WYSIWYG Editor
+- name: Download WYSIWYG Editor
+  get_url:
+    url: "{{ ckeditor_url }}"
+    dest: "/tmp/ckeditor_{{ ckeditor_version }}.zip"
+
+# Unzip CKEditor
+- name: Unzip ckeditor
+  unarchive:
+    copy: no
+    src: "/tmp/ckeditor_{{ ckeditor_version }}.zip"
+    dest: "{{ drupal_core_path }}/sites/all/libraries/"
+    owner: vagrant
+    group: vagrant
