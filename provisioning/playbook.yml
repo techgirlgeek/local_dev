@@ -41,5 +41,5 @@
     - roles/hds.php-mysql
     - roles/hds.composer
     - roles/hds.drush
-    - roles/hds.drupal
+    - roles/tgg.drupal
     - roles/hds.user_config
