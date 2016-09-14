@@ -16,9 +16,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.define "client.dev" do |client|
-    housing.vm.hostname = "client.dev"
-    housing.vm.network :private_network, ip: "10.20.30.54"
-    housing.vm.network "forwarded_port", guest: 3306, host: 3306
+    client.vm.hostname = "client.dev"
+    client.vm.network :private_network, ip: "10.20.30.54"
+    client.vm.network "forwarded_port", guest: 3306, host: 3306
   end
 
   config.vm.define "drupal7.dev" do |drupal7|
