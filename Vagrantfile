@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ["modifyvm", :id, "--ioapic", "on"]
   end
 
-  config.vm.define "client.dev" do |housing|
+  config.vm.define "client.dev" do |client|
     housing.vm.hostname = "client.dev"
     housing.vm.network :private_network, ip: "10.20.30.54"
     housing.vm.network "forwarded_port", guest: 3306, host: 3306
