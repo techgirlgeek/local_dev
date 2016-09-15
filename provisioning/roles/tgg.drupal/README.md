@@ -60,13 +60,13 @@ The install profile to use. If you're installing Drupal 6.x, you should update t
 
 ## Dependencies
 
-  - hds.git
-  - hds.apache
-  - hds.mysql
-  - hds.php
-  - hds.php-mysql
-  - hds.composer
-  - hds.drush
+  - tgg.git
+  - tgg.apache
+  - tgg.mysql
+  - tgg.php
+  - tgg.php-mysql
+  - tgg.composer
+  - tgg.drush
 
 ## Example Playbook
 
@@ -74,7 +74,7 @@ The install profile to use. If you're installing Drupal 6.x, you should update t
       vars_files:
         - vars/main.yml
       roles:
-        - { role: hds.drupal }
+        - { role: tgg.drupal }
 
 *Inside `vars/main.yml`*:
 

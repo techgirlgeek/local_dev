@@ -1,7 +1,0 @@
----
-# Variables for bash aliases file
-vagrant_home: "/home/vagrant"
-
-aliases: false
-
-aliases_extra: false

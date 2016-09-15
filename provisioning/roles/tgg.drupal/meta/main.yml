@@ -1,12 +1,12 @@
 ---
 dependencies:
-  - hds.git
-  - hds.apache
-  - hds.mysql
-  - hds.php
-  - hds.php-mysql
-  - hds.composer
-  - hds.drush
+  - tgg.git
+  - tgg.apache
+  - tgg.mysql
+  - tgg.php
+  - tgg.php-mysql
+  - tgg.composer
+  - tgg.drush
 
 galaxy_info:
   author: geerlingguy

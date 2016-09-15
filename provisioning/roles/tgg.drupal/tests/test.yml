@@ -10,11 +10,11 @@
       apt_repository: repo='ppa:ondrej/php5-5.6'
 
   roles:
-    - hds.git
-    - hds.apache
-    - hds.mysql
-    - hds.php
-    - hds.php-mysql
-    - hds.composer
-    - hds.drush
+    - tgg.git
+    - tgg.apache
+    - tgg.mysql
+    - tgg.php
+    - tgg.php-mysql
+    - tgg.composer
+    - tgg.drush
     - ansible-role-drupal

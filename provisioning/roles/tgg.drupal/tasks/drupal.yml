@@ -55,7 +55,7 @@
 # Download Drupal using Git.
 - name: Check out HIT Repo to the specified location.
   git:
-    repo: "{{ hds_repo_url }}"
+    repo: "{{ tgg_repo_url }}"
     dest: "{{ drupal_core_path }}"
     version: master
     accept_hostkey: true
@@ -64,7 +64,7 @@
 
 - name: Check out MyRoom Repo if host is oncampus.dev
   git:
-    repo: "git@bitbucket.org:hdscode/myroom.git"
+    repo: "git@bitbucket.org:tggcode/myroom.git"
     dest: "{{ drupal_core_path }}/sites/all/modules/custom/myroom"
     version: master
     accept_hostkey: true

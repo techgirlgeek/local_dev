@@ -31,15 +31,15 @@
      private: yes
 
   roles:
-    - roles/hds.add_commands
-    - roles/hds.firewall
-    - roles/hds.ntp
-    - roles/hds.postfix
-    - roles/hds.mysql
-    - roles/hds.apache
-    - roles/hds.php
-    - roles/hds.php-mysql
-    - roles/hds.composer
-    - roles/hds.drush
+    - roles/tgg.add_commands
+    - roles/tgg.firewall
+    - roles/tgg.ntp
+    - roles/tgg.postfix
+    - roles/tgg.mysql
+    - roles/tgg.apache
+    - roles/tgg.php
+    - roles/tgg.php-mysql
+    - roles/tgg.composer
+    - roles/tgg.drush
     - roles/tgg.drupal
-    - roles/hds.user_config
+    - roles/tgg.user_config
