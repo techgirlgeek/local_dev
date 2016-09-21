@@ -27,6 +27,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     drupal7.vm.network :private_network, ip: "10.20.30.67"
     drupal7.vm.network "forwarded_port", guest: 3306, host: 3319
     drupal7.vm.synced_folder "/Users/karyncassio/Sites/davita","/var/www/web/davita-careers/",:nfs => true
+    drupal7.vm.synced_folder "/Users/karyncassio/Sites/davita-referrals","/var/www/web/davita-referrals/",:nfs => true
   end
 
   config.vm.define "drupal8.dev" do |drupal8|
