@@ -21,14 +21,14 @@
     #- name: print out hostvars
     #  debug: var=hostvars[inventory_hostname].ansible_hostname
 
-  vars_prompt:
-   - name: "git_name"
-     prompt: "What is your full name for git? (Name will not be echoed.)"
-     private: yes
-
-   - name: "git_email"
-     prompt: "What is your Email address? (Email will not be echoed.)"
-     private: yes
+  # vars_prompt:
+  #  - name: "git_name"
+  #    prompt: "What is your full name for git? (Name will not be echoed.)"
+  #    private: yes
+  #
+  #  - name: "git_email"
+  #    prompt: "What is your Email address? (Email will not be echoed.)"
+  #    private: yes
 
   roles:
     - roles/tgg.add_commands

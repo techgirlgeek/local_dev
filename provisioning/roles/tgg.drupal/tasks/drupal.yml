@@ -53,57 +53,57 @@
     force: yes
 
 # Download Drupal using Git.
-- name: Check out HIT Repo to the specified location.
-  git:
-    repo: "{{ tgg_repo_url }}"
-    dest: "{{ drupal_core_path }}"
-    version: master
-    accept_hostkey: true
-    key_file: "{{ key_file }}"
-  when: "build_exceptions"
-
-- name: Check out MyRoom Repo if host is oncampus.dev
-  git:
-    repo: "git@bitbucket.org:tggcode/myroom.git"
-    dest: "{{ drupal_core_path }}/sites/all/modules/custom/myroom"
-    version: master
-    accept_hostkey: true
-    key_file: "{{ key_file }}"
-  when: drupal_domain == 'oncampus'
+# - name: Check out HIT Repo to the specified location.
+#   git:
+#     repo: "{{ tgg_repo_url }}"
+#     dest: "{{ drupal_core_path }}"
+#     version: master
+#     accept_hostkey: true
+#     key_file: "{{ key_file }}"
+#   when: "build_exceptions"
+#
+# - name: Check out MyRoom Repo if host is oncampus.dev
+#   git:
+#     repo: "git@bitbucket.org:tggcode/myroom.git"
+#     dest: "{{ drupal_core_path }}/sites/all/modules/custom/myroom"
+#     version: master
+#     accept_hostkey: true
+#     key_file: "{{ key_file }}"
+#   when: drupal_domain == 'oncampus'
 
 # Download Drupal 8.0.x using Git.
-- name: Check out Drupal Core 8.0.x to the default location.
-  git:
-    repo: "{{ drupal_repo }}"
-    version: "{{ d8_version }}"
-    update: "{{ drupal_keep_updated }}"
-    dest: "{{ drupal_core_path }}"
-  when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
-
-# Download Drupal 7.x using Git.
-- name: Check out Drupal Core 7.x to the default location.
-  git:
-    repo: "{{ drupal_repo }}"
-    version: "{{ d7_version }}"
-    update: "{{ drupal_keep_updated }}"
-    dest: "{{ drupal_core_path }}"
-  when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
-
-# Grab a new install profile for a fresh D7 install.
-- name: Check out Drupal 7 install profile.
-  git:
-    repo: "{{ d7_profile_repo }}"
-    dest: "{{ profile_path }}"
-    key_file: "{{ key_file }}"
-  when: drupal_domain == 'drupal7'
+# - name: Check out Drupal Core 8.0.x to the default location.
+#   git:
+#     repo: "{{ drupal_repo }}"
+#     version: "{{ d8_version }}"
+#     update: "{{ drupal_keep_updated }}"
+#     dest: "{{ drupal_core_path }}"
+#   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+#
+# # Download Drupal 7.x using Git.
+# - name: Check out Drupal Core 7.x to the default location.
+#   git:
+#     repo: "{{ drupal_repo }}"
+#     version: "{{ d7_version }}"
+#     update: "{{ drupal_keep_updated }}"
+#     dest: "{{ drupal_core_path }}"
+#   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
 
 # Grab a new install profile for a fresh D7 install.
-- name: Check out Drupal 8 install profile.
-  git:
-    repo: "{{ d8_profile_repo }}"
-    dest: "{{ profile_path }}"
-    key_file: "{{ key_file }}"
-  when: drupal_domain == 'drupal8'
+# - name: Check out Drupal 7 install profile.
+#   git:
+#     repo: "{{ d7_profile_repo }}"
+#     dest: "{{ profile_path }}"
+#     key_file: "{{ key_file }}"
+#   when: drupal_domain == 'drupal7'
+
+# Grab a new install profile for a fresh D7 install.
+# - name: Check out Drupal 8 install profile.
+#   git:
+#     repo: "{{ d8_profile_repo }}"
+#     dest: "{{ profile_path }}"
+#     key_file: "{{ key_file }}"
+#   when: drupal_domain == 'drupal8'
 
 - name: Create contrib modules folder
   file:
@@ -152,12 +152,12 @@
   when: drupal_domain == 'drupal8'
 
 # Get ldap feature
-- name: Check out ldap settings repo.
-  git:
-    repo: "{{ d7_ldap_repo }}"
-    dest: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
-    key_file: "{{ key_file }}"
-  when: drupal_domain == 'drupal7'
+# - name: Check out ldap settings repo.
+#   git:
+#     repo: "{{ d7_ldap_repo }}"
+#     dest: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
+#     key_file: "{{ key_file }}"
+#   when: drupal_domain == 'drupal7'
 
 - name: include wysiwyg
   include: wysiwyg.yml
@@ -181,13 +181,13 @@
     replace: "$settings['file_private_path'] = '/var/www/web/{{ drupal_domain }}.dev/private';"
   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
 
-- name: Set ownership of /var/www/web/ drupal_domain_path
-  file:
-    path: "{{ drupal_core_path }}"
-    owner: vagrant
-    group: www-data
-    state: directory
-    recurse: yes
+# - name: Set ownership of /var/www/ drupal_domain_path
+#   file:
+#     path: "{{ drupal_core_path }}"
+#     owner: vagrant
+#     group: www-data
+#     state: directory
+#     recurse: yes
 
 # SEE: https://drupal.org/node/2121849#comment-8413637
 - name: Set permissions properly on settings.php.
@@ -195,14 +195,14 @@
     path: "{{ drupal_core_path }}/sites/default/settings.php"
     mode: 0644
 
-- name: Set permissions properly on files directory.
-  file:
-    path: "{{ drupal_core_path }}/sites/default/files"
-    owner: vagrant
-    group: www-data
-    mode: 0775
-    state: directory
-    recurse: yes
+# - name: Set permissions properly on files directory.
+#   file:
+#     path: "{{ drupal_core_path }}/sites/default/files"
+#     owner: vagrant
+#     group: www-data
+#     mode: 0775
+#     state: directory
+#     recurse: yes
 
 - name: Create symbolic link to new web directory in home
   file:

@@ -4,5 +4,6 @@
 
 [local-dev]
 client.dev	ansible_ssh_host=10.20.30.50
-drupal7.dev   ansible_ssh_host=10.20.30.67
-drupal8.dev   ansible_ssh_host=10.20.30.68
+drupal7.dev   	ansible_ssh_host=10.20.30.67
+dia.dev   	ansible_ssh_host=10.20.30.69
+drupal8.dev   	ansible_ssh_host=10.20.30.68
