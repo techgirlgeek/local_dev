@@ -6,3 +6,4 @@
 #  when: "{{ build_exceptions }}"
 - include: bundle.yml
 - include: site-settings.yml
+  tags: drupal

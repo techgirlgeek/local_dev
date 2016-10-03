@@ -7,10 +7,12 @@
     update: "{{ drush_keep_updated }}"
     force: "{{ drush_force_update }}"
   register: drush_clone
+  tags: drupal
 
 - name: Check for composer.json
   stat: path={{ drush_install_path }}/composer.json
   register: drush_composer
+  tags: drupal
 
 # See: https://github.com/geerlingguy/ansible-role-drush/issues/6
 - name: Ensure Drush can be installed on Debian Wheezy.
@@ -18,20 +20,24 @@
     {{ composer_path }} update {{ drush_composer_cli_options }}
     chdir={{ drush_install_path }}
   when: drush_clone.changed and ansible_distribution == "Debian" and ansible_distribution_release == "wheezy" and drush_composer.stat.exists
+  tags: drupal
 
 - name: Install Drush dependencies with Composer.
   shell: >
     {{ composer_path }} install {{ drush_composer_cli_options }}
     chdir={{ drush_install_path }}
   when: drush_clone.changed and drush_composer.stat.exists
+  tags: drupal
 
 - name: Create drush symlink.
   file:
     src: "{{ drush_install_path }}/drush"
     dest: "{{ drush_path }}"
     state: link
+  tags: drupal
 
 - name: Run drush to finish setting it up.
   command: "{{ drush_path }}"
   register: drush_result
   changed_when: "'Execute a drush command' not in drush_result.stdout"
+  tags: drupal

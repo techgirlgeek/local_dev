@@ -110,12 +110,14 @@
     path: "{{ drupal_core_path }}/sites/all/modules/contrib"
     state: directory
   when: drupal_domain == 'sandbox7' or drupal_domain == 'drupal7'
+  tags: drupal
 
 - name: Create contrib modules folder for D8
   file:
     path: "{{ drupal_core_path }}/modules/contrib"
     state: directory
   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+  tags: drupal
 
 - name: Create D8 Profile Module path
   file:
@@ -128,6 +130,7 @@
     path: "{{ drupal_core_path }}/sites/all/modules/features/ldap_settings_and_groups"
     state: directory
   when: drupal_domain == 'drupal7'
+  tags: drupal
 
 - name: Create D8 features folder
   file:
@@ -143,6 +146,7 @@
     drush dl {{ d7_req_mods }} -y
     chdir={{ drupal_core_path }}/sites/all/modules/contrib
   when: drupal_domain == 'drupal7'
+  tags: drupal
 
 # Get required contrib modules before D8 install
 - name: Get Required modules with drush
@@ -162,6 +166,7 @@
 - name: include wysiwyg
   include: wysiwyg.yml
   when: drupal_domain == 'drupal7'
+  tags: drupal
 
 # Install Drupal for site
 - name: Install Drupal.
@@ -173,13 +178,15 @@
     --db-url=mysql://{{ drupal_mysql_user }}:{{ drupal_mysql_password }}@localhost/{{ drupal_mysql_database }}
     chdir={{ drupal_core_path }}
     creates={{ drupal_core_path }}/sites/default/settings.php
+  tags: drupal
 
 - name: Update settings.php file for sandbox8
   replace:
     dest: "{{ drupal_core_path }}/sites/default/settings.php"
     regexp: "^# \\$settings\\['file_private_path'\\] = '';"
-    replace: "$settings['file_private_path'] = '/var/www/web/{{ drupal_domain }}.dev/private';"
+    replace: "$settings['file_private_path'] = '/var/www/{{ drupal_domain }}.dev/private';"
   when: drupal_domain == 'sandbox8' or drupal_domain == 'drupal8'
+  tags: drupal
 
 # - name: Set ownership of /var/www/ drupal_domain_path
 #   file:
@@ -194,6 +201,7 @@
   file:
     path: "{{ drupal_core_path }}/sites/default/settings.php"
     mode: 0644
+  tags: drupal
 
 # - name: Set permissions properly on files directory.
 #   file:
@@ -211,3 +219,4 @@
     owner: vagrant
     group: vagrant
     state: link
+  #tags: drupal
